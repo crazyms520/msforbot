@@ -1,1 +1,1 @@
-web:node index22.js
+web:node index2.js
