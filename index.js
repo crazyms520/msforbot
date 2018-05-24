@@ -22,11 +22,11 @@ console.log(config.channelID);
 app.post('/callback', line.middleware(config), (req, res) => {
   Promise
     .all(req.body.events.map(handleEvent))
-    .then((result) => res.json(result));
-    //.catch((err) => {
-      //console.error(err);
-      //res.status(500).end();
-    //});
+    .then((result) => res.json(result))
+    .catch((err) => {
+     console.error(err);
+      res.status(500).end();
+    });
 });
 
 // event handler
