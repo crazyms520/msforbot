@@ -7,6 +7,7 @@ const express = require('express');
 const config = {
   channelAccessToken: process.env.CHANNEL_ACCESS_TOKEN,
   channelSecret: process.env.CHANNEL_SECRET,
+  channelID:process.env.CHANNEL_ID,
 };
 
 // create LINE SDK client
