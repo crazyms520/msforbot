@@ -16,7 +16,6 @@ const client = new line.Client(config);
 // create Express app
 // about Express itself: https://expressjs.com/
 const app = express();
-console.log(config.channelID);
 // register a webhook handler with middleware
 // about the middleware, please refer to doc
 app.post('/callback', line.middleware(config), (req, res) => {
@@ -38,7 +37,7 @@ function handleEvent(event) {
 
   // create a echoing text message
   const echo = { type: 'text', text: event.message.text }
-  console.log(echo);
+  console.log('res:'+echo);
 
   // use reply API
   return client.replyMessage(event.replyToken, echo);
