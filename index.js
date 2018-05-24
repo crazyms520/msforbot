@@ -23,7 +23,7 @@ app.post('/callback', line.middleware(config), (req, res) => {
     .all(req.body.events.map(handleEvent))
     .then((result) => res.json(result))
     .catch((err) => {
-     console.error(err);
+     console.error('err:'+err);
       res.status(500).end();
     });
 });
