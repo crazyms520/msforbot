@@ -44,7 +44,8 @@ function handleEvent(event) {
     user.then((profile) => {
       console.log (profile);
       const echo = { type: 'text', text: profile.displayName+' 你好' }
-      status = true;
+      // use reply API
+      return client.replyMessage(event.replyToken, echo);
       
     });
   } else {
@@ -53,16 +54,11 @@ function handleEvent(event) {
       console.log (profile);
       // create a echoing text message
       const echo = { type: 'text', text: profile.displayName+' say : '+event.message.text };
-      status = true;
+      // use reply API
+      return client.replyMessage(event.replyToken, echo);
     });
     // });
   }
-
-  // use reply API
-  if (status) {
-    return client.replyMessage(event.replyToken, echo);
-  }
-  
   
   // client.getGroupMemberProfile (event.source.groupId,event.source.userId).then ((profile) => {
   //   console.log (profile);
