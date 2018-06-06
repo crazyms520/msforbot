@@ -37,25 +37,32 @@ function handleEvent(event) {
   }
 
   var user = client.getGroupMemberProfile (event.source.groupId,event.source.userId);
+  var status = false;
   console.log (typeof (event.message.text));
   console.log (event.message.text);
   if (event.message.text == '??') {
     user.then((profile) => {
       console.log (profile);
       const echo = { type: 'text', text: profile.displayName+' 你好' }
+      status = true;
+      
     });
   } else {
     // client.getGroupMemberProfile (event.source.groupId,event.source.userId).then ((profile) => {
     user.then((profile) => {
       console.log (profile);
       // create a echoing text message
-      const echo = { type: 'text', text: profile.displayName+' say : '+event.message.text }
+      const echo = { type: 'text', text: profile.displayName+' say : '+event.message.text };
+      status = true;
     });
     // });
   }
 
   // use reply API
-  return client.replyMessage(event.replyToken, echo);
+  if (status) {
+    return client.replyMessage(event.replyToken, echo);
+  }
+  
   
   // client.getGroupMemberProfile (event.source.groupId,event.source.userId).then ((profile) => {
   //   console.log (profile);
