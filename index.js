@@ -35,13 +35,10 @@ function handleEvent(event) {
     // ignore non-text-message event
     return Promise.resolve(null);
   }
-  var user = client.getProfile (event.source.userId).then ((profile) => {
-    console.log( profile);
-    console.log(profile.displayName);
-  });
+  var user = client.getProfile (event.source.userId);
   
   console.log ('this user');
-  console.log (user.displayName);
+  console.log (user.profile.displayName);
 // create a echoing text message
   const echo = { type: 'text', text: user+'say : '+event.message.text }
 
