@@ -10,7 +10,7 @@ const assert      = require('assert');
 const url = 'mongodb://sheep520:sheep520@ds251819.mlab.com:51819/heroku_0xplggfh'
  
 // Database Name
-const dbName = 'test';
+const dbName = 'heroku_0xplggfh';
  
 // Use connect method to connect to the server
 MongoClient.connect(url, function(err, client) {
@@ -26,7 +26,7 @@ MongoClient.connect(url, function(err, client) {
 
 const findDocuments = function(db, callback) {
   // Get the documents collection
-  const collection = db.collection('documents');
+  const collection = db.collection('test');
   // Find some documents
   collection.find({}).toArray(function(err, docs) {
     assert.equal(err, null);
