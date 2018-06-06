@@ -37,12 +37,11 @@ function handleEvent(event) {
   }
   var user = client.getProfile (event.source.userId).then ((profile) => {
     console.log( profile);
-    var user = profile.displayName;
-    return user;
+    console.log(profile.displayName);
   });
   
   console.log ('this user');
-  console.log (user);
+  console.log (user.displayName);
 // create a echoing text message
   const echo = { type: 'text', text: user+'say : '+event.message.text }
 
