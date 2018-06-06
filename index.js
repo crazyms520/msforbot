@@ -35,13 +35,34 @@ function handleEvent(event) {
     // ignore non-text-message event
     return Promise.resolve(null);
   }
-  client.getGroupMemberProfile (event.source.groupId,event.source.userId).then ((profile) => {
-    console.log (profile);
-    // create a echoing text message
-    const echo = { type: 'text', text: profile.displayName+' say : '+event.message.text }
-    // use reply API
-    return client.replyMessage(event.replyToken, echo);
-  });
+
+  var user = client.getGroupMemberProfile (event.source.groupId,event.source.userId);
+
+  if (event.message.text == '??') {
+    user.then((profile) => {
+      console.log (profile);
+      const echo = { type: 'text', text: profile.displayName+' 你好' }
+    });
+  } else {
+    // client.getGroupMemberProfile (event.source.groupId,event.source.userId).then ((profile) => {
+    user.then((profile) => {
+      console.log (profile);
+      // create a echoing text message
+      const echo = { type: 'text', text: profile.displayName+' say : '+event.message.text }
+    });
+    // });
+  }
+
+  // use reply API
+  return client.replyMessage(event.replyToken, echo);
+  
+  // client.getGroupMemberProfile (event.source.groupId,event.source.userId).then ((profile) => {
+  //   console.log (profile);
+  //   // create a echoing text message
+  //   const echo = { type: 'text', text: profile.displayName+' say : '+event.message.text }
+  //   // use reply API
+  //   return client.replyMessage(event.replyToken, echo);
+  // });
 }
 
 // listen on port
