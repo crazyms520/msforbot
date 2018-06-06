@@ -32,7 +32,7 @@ const findDocuments = function(db, callback) {
     assert.equal(err, null);
     console.log("Found the following records");
     console.log(docs)
-    console.log(JSON.stringify(docs));
+    console.log(JSON.stringify(docs).test);
     callback(docs);
   });
 }
