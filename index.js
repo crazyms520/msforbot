@@ -35,9 +35,10 @@ function handleEvent(event) {
     // ignore non-text-message event
     return Promise.resolve(null);
   }
-
+  var user = getProfile (event.source.userId);
+  console.log (user);
 //   // create a echoing text message
-  const echo = { type: 'text', text: event.message.text+event.source.userId }
+  const echo = { type: 'text', text: event.message.text }
 
 //   // use reply API
   return client.replyMessage(event.replyToken, echo);
