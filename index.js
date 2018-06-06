@@ -18,9 +18,10 @@ MongoClient.connect(url, function(err, client) {
   console.log("Connected successfully to server");
  
   const db = client.db(dbName);
-  findDocuments(db, function() {
+  var dd = findDocuments(db, function() {
     client.close();
   });
+  
   client.close();
 });
 
@@ -28,11 +29,11 @@ const findDocuments = function(db, callback) {
   // Get the documents collection
   const collection = db.collection('test');
   // Find some documents
-  collection.find({"test":"1"}).toArray(function(err, docs) {
+  collection.find({}).toArray(function(err, docs) {
     assert.equal(err, null);
     console.log("Found the following records");
-    console.log(docs)
-    console.log(JSON.parse(docs));
+    console.log(docs);
+
     callback(docs);
   });
 }
@@ -69,12 +70,12 @@ function handleEvent(event) {
     return Promise.resolve(null);
   }
 
-  // create a echoing text message
+//   // create a echoing text message
   const echo = { type: 'text', text: event.message.text }
   console.log('res1: ' + JSON.stringify(event));
   console.log('res2: ' + JSON.stringify(event.message));
 
-  // use reply API
+//   // use reply API
   return client.replyMessage(event.replyToken, echo);
 }
 
