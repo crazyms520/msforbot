@@ -4,13 +4,14 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start" : "node .",
+    "start": "node .",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
     "@line/bot-sdk": "^6.0.2",
-    "express": "^4.16.3"
+    "express": "^4.16.3",
+    "mongodb": "^3.0.10"
   }
 }

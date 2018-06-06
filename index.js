@@ -1,7 +1,26 @@
 'use strict';
 
-const line = require('@line/bot-sdk');
-const express = require('express');
+const line        = require('@line/bot-sdk');
+const express     = require('express');
+const MongoClient = require('mongodb').MongoClient;
+const assert      = require('assert');
+ 
+// Connection URL
+// const url = 'mongodb://localhost:27017';
+const url = 'mongodb://sheep520:sheep520@ds251819.mlab.com:51819/heroku_0xplggfh'
+ 
+// Database Name
+const dbName = 'test';
+ 
+// Use connect method to connect to the server
+MongoClient.connect(url, function(err, client) {
+  assert.equal(null, err);
+  console.log("Connected successfully to server");
+ 
+  const db = client.db(dbName);
+ 
+  client.close();
+});
 
 // create LINE SDK config from env variables
 const config = {
