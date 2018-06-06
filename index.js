@@ -36,18 +36,24 @@ function handleEvent(event) {
     return Promise.resolve(null);
   }
 
+
   var user = client.getGroupMemberProfile (event.source.groupId,event.source.userId);
   var status = false;
   console.log (typeof (event.message.text));
   console.log (event.message.text);
   if (event.message.text == '??') {
-    user.then((profile) => {
-      console.log (profile);
-      const echo = { type: 'text', text: profile.displayName+' 你好' }
-      // use reply API
-      return client.replyMessage(event.replyToken, echo);
-      
+    client.createRichMenu({ 
+      size: { width: 2500, height: 1686 }
+     }).then((richMenuId) => {
+       console.log(richMenuId)
+       user.then((profile) => {
+        console.log (profile);
+        const echo = { type: 'text', text: profile.displayName+' 你好' }
+        // use reply API
+        return client.replyMessage(event.replyToken, echo);
+      });
     });
+    
   } else {
     // client.getGroupMemberProfile (event.source.groupId,event.source.userId).then ((profile) => {
     user.then((profile) => {
