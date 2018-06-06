@@ -31,7 +31,7 @@ const findDocuments = function(db, callback) {
   collection.find({"test":"1"}).toArray(function(err, docs) {
     assert.equal(err, null);
     console.log("Found the following records");
-    console.log(docs)
+    console.log(docs.test)
     callback(docs);
   });
 }
