@@ -35,7 +35,10 @@ function handleEvent(event) {
     // ignore non-text-message event
     return Promise.resolve(null);
   }
-  var user = client.getProfile (event.source.userId);
+  var user = client.getProfile (event.source.userId).then ((profile) => {
+    console.log( profile);
+  });
+  
   console.log ('this user');
   console.log (user);
 //   // create a echoing text message
