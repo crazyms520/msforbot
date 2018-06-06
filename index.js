@@ -46,6 +46,7 @@ function handleEvent(event) {
       var user = client.getGroupMemberProfile (event.source.groupId,event.source.userId);
     }
   }
+  console.log (user.profile);
   
   user.then((profile) => {
     console.log (profile);
