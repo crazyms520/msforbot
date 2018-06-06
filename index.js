@@ -37,7 +37,8 @@ function handleEvent(event) {
   }
 
   var user = client.getGroupMemberProfile (event.source.groupId,event.source.userId);
-
+  console.log (typeof (event.message.text));
+  console.log (event.message.text);
   if (event.message.text == '??') {
     user.then((profile) => {
       console.log (profile);
