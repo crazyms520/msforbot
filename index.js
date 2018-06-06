@@ -46,12 +46,11 @@ function handleEvent(event) {
       var user = client.getGroupMemberProfile (event.source.groupId,event.source.userId);
     }
   }
-  console.log (user.profile);
   
   var aa = user.then((profile) => {
     console.log (profile);
     // create a echoing text message
-    return echo = { type: 'text', text: profile.displayName+' say : '+event.message.text };
+    return { type: 'text', text: profile.displayName+' say : '+event.message.text };
     // use reply API
     // return client.replyMessage(event.replyToken, echo);
   });
