@@ -48,6 +48,7 @@ function handleEvent(event) {
   if (event.message.text == '蘋果') {
     var result = user.then((profile) => {
       let apple = appleCrawler();
+      console.log(apple);
       const echo = { type: 'text', text: profile.displayName+' say : '+apple }
       return client.replyMessage(event.replyToken, echo);
     });
