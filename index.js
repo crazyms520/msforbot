@@ -23,7 +23,10 @@ app.post('/callback', line.middleware(config), (req, res) => {
   console.log (req.body.events);
   Promise
     .all(req.body.events.map(handleEvent))
-    // .then((result) => res.json(result))
+    .then((result) => {
+      console.log(result);
+      res.json(result)}
+    )
     .catch((err) => {
      console.error('err:'+err);
       res.status(500).end();
@@ -47,7 +50,9 @@ function handleEvent(event) {
   
   if (event.message.text == '蘋果') {
     var result = user.then((profile) => {
+      // create a echoing text message
       const echo = { type: 'text', text: profile.displayName+' say : '+apple }
+      // use reply API
       return client.replyMessage(event.replyToken, echo);
     });
   } else {
