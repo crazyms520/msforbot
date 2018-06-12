@@ -17,8 +17,7 @@ const appleCrawler = function (profile) {
                 data.push($(this).text()+'\n')
                 data.push($(this).children('a').attr('href')+'\n')
             })
-            console.log(data);
-            const echo = { type: 'text', text: profile.displayName+' say : '+ data }
+            const echo = { type: 'text', text: profile.displayName+' say : '+ data.replace(',') }
             resolve (echo);
         });
     });
