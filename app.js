@@ -13,7 +13,7 @@ const url = 'https://tw.appledaily.com/search'
 //     console.log(body)
 // })
 
-let request = request.post({
+request.post({
     headers: {'content-type' : 'application/x-www-form-urlencoded'},
     url:     url,
     body:    "querystrS=食安&searchType=text&searchMode=Sim"
@@ -25,11 +25,11 @@ let request = request.post({
     // results.hrefs = [];
     results = [];
     $('.tbb > h2').each(function(i, elem) {
-        console.log(elem);
+       console.log(elem);
         // results.push('蘋果')
         results.push($(this).text())
-        results.push($('.tbb > h2 > a').attr('href'))
-        
+        results.push($(this).children('a').attr('href'))
+        console.log(results);
 
     })
   });
