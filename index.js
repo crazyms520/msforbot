@@ -2,8 +2,6 @@
 
 const line    = require('@line/bot-sdk');
 const express = require('express');
-const request = require('request');
-const cheerio = require('cheerio');
 const appleCrawler = require('./modules/crawler');
 
 // create LINE SDK config from env variables
