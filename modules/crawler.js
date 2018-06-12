@@ -1,7 +1,7 @@
 const request = require('request');
 const cheerio = require('cheerio');
 
-const appleCrawler = function () {
+const appleCrawler = function (profile) {
     return new Promise((resolve, reject) => {
         const url = 'https://tw.appledaily.com/search'
         let data = [];
@@ -17,9 +17,10 @@ const appleCrawler = function () {
                 data.push($(this).text())
                 data.push($('.tbb > h2 > a').attr('href'))
             })
-            resolve (data);
+            const echo = { type: 'text', text: profile.displayName+' say : '+ data }
+            resolve (echo);
+        });
     });
-    })
     
 }
 

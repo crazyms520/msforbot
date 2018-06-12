@@ -54,10 +54,7 @@ function handleEvent(event) {
       // const echo = { type: 'text', text: profile.displayName+' say : '+ apple }
       // use reply API
       // return client.replyMessage(event.replyToken, echo);
-    }).then((profile) => {
-      // create a echoing text message
-      const echo = { type: 'text', text: profile.displayName+' say : '+ apple }
-      // use reply API
+    }).then(appleCrawler).then((echo) => {
       return client.replyMessage(event.replyToken, echo);
     });
   } else {
