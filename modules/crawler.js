@@ -8,26 +8,16 @@ const appleCrawler = function () {
         headers: {'content-type' : 'application/x-www-form-urlencoded'},
         url:     url,
         body:    "querystrS=食安&searchType=text&searchMode=Sim"
-    }).then(function(){
-        let $ = cheerio.load(results);
+    }, function(error, response, body){
+        let data = [];
+        let $ = cheerio.load(body);
         $('.tbb > h2').each(function(i, elem) {
+            // results.push('蘋果')
             data.push($(this).text())
             data.push($('.tbb > h2 > a').attr('href'))
         })
-        console.log(data);
         return data;
-    })
-
-//     }, function(error, response, body){
-//         let data = [];
-//         let $ = cheerio.load(body);
-//         $('.tbb > h2').each(function(i, elem) {
-//             // results.push('蘋果')
-//             data.push($(this).text())
-//             data.push($('.tbb > h2 > a').attr('href'))
-//         })
-//         return data;
-//   });
+  });
 }
 
 module.exports = appleCrawler;
