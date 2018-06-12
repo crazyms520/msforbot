@@ -24,8 +24,6 @@ app.post('/callback', line.middleware(config), (req, res) => {
   Promise
     .all(req.body.events.map(handleEvent))
     .then((result) => {
-      console.log('result');
-      console.log(res.json(result));
       res.json(result)}
     )
     .catch((err) => {
@@ -50,9 +48,15 @@ function handleEvent(event) {
   }
   
   if (event.message.text == '蘋果') {
-    var result = user.then((profile) => {
+    var result = user.then((profile)=>{
       // create a echoing text message
-      const echo = { type: 'text', text: profile.displayName+' say : '+apple }
+      return profile
+      // const echo = { type: 'text', text: profile.displayName+' say : '+ apple }
+      // use reply API
+      // return client.replyMessage(event.replyToken, echo);
+    }).then((profile) => {
+      // create a echoing text message
+      const echo = { type: 'text', text: profile.displayName+' say : '+ apple }
       // use reply API
       return client.replyMessage(event.replyToken, echo);
     });
