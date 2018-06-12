@@ -23,7 +23,7 @@ app.post('/callback', line.middleware(config), (req, res) => {
   console.log (req.body.events);
   Promise
     .all(req.body.events.map(handleEvent))
-    .then((result) => res.json(result))
+    // .then((result) => res.json(result))
     .catch((err) => {
      console.error('err:'+err);
       res.status(500).end();
@@ -46,7 +46,7 @@ function handleEvent(event) {
   }
   
   if (event.message.text == '蘋果') {
-    var result = user.then(appleCrawler).then((profile) => {
+    var result = user.then((profile) => {
       const echo = { type: 'text', text: profile.displayName+' say : '+apple }
       return client.replyMessage(event.replyToken, echo);
     });
