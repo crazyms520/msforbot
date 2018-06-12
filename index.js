@@ -25,7 +25,7 @@ app.post('/callback', line.middleware(config), (req, res) => {
     .all(req.body.events.map(handleEvent))
     .then((result) => {
       console.log('result');
-      console.log(result);
+      console.log(res.json(result));
       res.json(result)}
     )
     .catch((err) => {
