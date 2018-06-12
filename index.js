@@ -24,6 +24,7 @@ app.post('/callback', line.middleware(config), (req, res) => {
   Promise
     .all(req.body.events.map(handleEvent))
     .then((result) => {
+      console.log('result');
       console.log(result);
       res.json(result)}
     )
