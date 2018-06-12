@@ -12,7 +12,6 @@ const appleCrawler = function () {
         let $ = cheerio.load(body);
         results = [];
         $('.tbb > h2').each(function(i, elem) {
-            console.log(elem);
             // results.push('蘋果')
             results.push($(this).text())
             results.push($('.tbb > h2 > a').attr('href'))
