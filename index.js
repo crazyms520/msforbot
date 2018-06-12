@@ -62,7 +62,7 @@ function handleEvent(event) {
           })
     });
       console.log(data);
-      const echo = { type: 'text', text: profile.displayName+' say : '+apple }
+      const echo = { type: 'text', text: profile.displayName+' say : '+data }
       return client.replyMessage(event.replyToken, echo);
     });
   } else {
