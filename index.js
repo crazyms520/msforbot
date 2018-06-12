@@ -2,8 +2,8 @@
 
 const line    = require('@line/bot-sdk');
 const express = require('express');
-const request = require('request');
-const cheerio = require('cheerio');
+const appleCrawler = require('./modules/crawler');
+
 // create LINE SDK config from env variables
 const config = {
   channelAccessToken: process.env.CHANNEL_ACCESS_TOKEN,
@@ -46,23 +46,8 @@ function handleEvent(event) {
   }
   
   if (event.message.text == '蘋果') {
-    var result = user.then((profile) => {
-      const url = 'https://tw.appledaily.com/search'
-      let data = [];
-      let results = request.post({
-          headers: {'content-type' : 'application/x-www-form-urlencoded'},
-          url:     url,
-          body:    "querystrS=食安&searchType=text&searchMode=Sim"
-      }, function(error, response, body){
-          let $ = cheerio.load(body);
-          $('.tbb > h2').each(function(i, elem) {
-              // results.push('蘋果')
-              data.push($(this).text())
-              data.push($('.tbb > h2 > a').attr('href'))
-          })
-    });
-      console.log(data);
-      const echo = { type: 'text', text: profile.displayName+' say : '+data }
+    var result = user.then(appleCrawler).then((profile) => {
+      const echo = { type: 'text', text: profile.displayName+' say : '+apple }
       return client.replyMessage(event.replyToken, echo);
     });
   } else {
