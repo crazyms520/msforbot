@@ -50,13 +50,11 @@ function handleEvent(event) {
   var aa = user.then((profile) => {
     console.log (profile);
     // create a echoing text message
-    return { type: 'text', text: profile.displayName+' say : '+event.message.text };
+    const echo = { type: 'text', text: profile.displayName+' say : '+event.message.text }
     // use reply API
-    // return client.replyMessage(event.replyToken, echo);
+    return client.replyMessage(event.replyToken, echo);
   });
 
-  console.log (aa);
-  
   // client.getGroupMemberProfile (event.source.groupId,event.source.userId).then ((profile) => {
   //   console.log (profile);
   //   // create a echoing text message
