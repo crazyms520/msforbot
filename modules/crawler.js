@@ -17,7 +17,7 @@ const appleCrawler = function (profile) {
                 data.push($(this).text()+'\n')
                 data.push($(this).children('a').attr('href')+'\n')
             })
-            data.map((e) => {
+            data = data.map((e) => {
                 return e.replace(',')
             });
             const echo = { type: 'text', text: profile.displayName+' say : '+ data }
