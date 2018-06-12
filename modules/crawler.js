@@ -8,6 +8,14 @@ const appleCrawler = function () {
         headers: {'content-type' : 'application/x-www-form-urlencoded'},
         url:     url,
         body:    "querystrS=食安&searchType=text&searchMode=Sim"
+    }).then(function(){
+        let $ = cheerio.load(results);
+        $('.tbb > h2').each(function(i, elem) {
+            data.push($(this).text())
+            data.push($('.tbb > h2 > a').attr('href'))
+        })
+        console.log(data);
+        return data;
     })
 
 //     }, function(error, response, body){
@@ -20,14 +28,6 @@ const appleCrawler = function () {
 //         })
 //         return data;
 //   });
-
-    let $ = cheerio.load(results);
-    $('.tbb > h2').each(function(i, elem) {
-        data.push($(this).text())
-        data.push($('.tbb > h2 > a').attr('href'))
-    })
-  console.log(data);
-  return data;
 }
 
 module.exports = appleCrawler;
