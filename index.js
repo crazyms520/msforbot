@@ -38,13 +38,10 @@ function handleEvent(event) {
 
 
   // var user = client.getGroupMemberProfile (event.source.groupId,event.source.userId);
-  var status = false;
-  if (event.message.text == '??') {
-    if (event.source.type == 'user') {
-      var user = client.getProfile (event.source.userId);
-    } else {
-      var user = client.getGroupMemberProfile (event.source.groupId,event.source.userId);
-    }
+  if (event.source.type == 'user') {
+    var user = client.getProfile (event.source.userId);
+  } else {
+    var user = client.getGroupMemberProfile (event.source.groupId,event.source.userId);
   }
   
   var aa = user.then((profile) => {
@@ -55,13 +52,6 @@ function handleEvent(event) {
     return client.replyMessage(event.replyToken, echo);
   });
 
-  // client.getGroupMemberProfile (event.source.groupId,event.source.userId).then ((profile) => {
-  //   console.log (profile);
-  //   // create a echoing text message
-  //   const echo = { type: 'text', text: profile.displayName+' say : '+event.message.text }
-  //   // use reply API
-  //   return client.replyMessage(event.replyToken, echo);
-  // });
 }
 
 // listen on port
