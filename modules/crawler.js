@@ -17,6 +17,7 @@ const appleCrawler = function (profile) {
                 data.push($(this).text().split('\n'))
                 data.push($('.tbb > h2 > a').attr('href').split('\n'))
             })
+            console.log(data);
             const echo = { type: 'text', text: profile.displayName+' say : '+ data }
             resolve (echo);
         });
