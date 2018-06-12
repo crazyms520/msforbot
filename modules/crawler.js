@@ -14,9 +14,10 @@ const appleCrawler = function (profile) {
             let $ = cheerio.load(body);
             $('.tbb > h2').each(function(i, elem) {
                 // results.push('蘋果')
-                data.push($(this).text() + '\n' + $(this).children('a').attr('href')+'\n')
+                data.push($(this).text() + '\n' + $(this).children('a').attr('href'))
                 // data.push($(this).children('a').attr('href')+'\n')
             })
+            data = data.join('\n')
             
             const echo = { type: 'text', text: profile.displayName+' say : '+ data }
             resolve (echo);
