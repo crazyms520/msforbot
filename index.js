@@ -1,7 +1,10 @@
 'use strict';
 
-const line        = require('@line/bot-sdk');
-const express     = require('express');
+const line    = require('@line/bot-sdk');
+const express = require('express');
+const request = require('request');
+const cheerio = require('cheerio');
+const appleCrawler = require('./modules/crawler');
 
 // create LINE SDK config from env variables
 const config = {
@@ -36,22 +39,26 @@ function handleEvent(event) {
     return Promise.resolve(null);
   }
 
+  // if (event.message.text == '??') 
 
-  // var user = client.getGroupMemberProfile (event.source.groupId,event.source.userId);
   if (event.source.type == 'user') {
     var user = client.getProfile (event.source.userId);
   } else {
     var user = client.getGroupMemberProfile (event.source.groupId,event.source.userId);
   }
   
-  var aa = user.then((profile) => {
-    console.log (profile);
-    // create a echoing text message
-    const echo = { type: 'text', text: profile.displayName+' say : '+event.message.text }
-    // use reply API
+  if (event.message.text == '蘋果') {
+    let apple = appleCrawler();
+    const echo = { type: 'text', text: profile.displayName+' say : '+apple }
     return client.replyMessage(event.replyToken, echo);
-  });
-
+  } else {
+    var result = user.then((profile) => {
+      // create a echoing text message
+      const echo = { type: 'text', text: profile.displayName+' say : '+event.message.text }
+      // use reply API
+      return client.replyMessage(event.replyToken, echo);
+    });
+  }
 }
 
 // listen on port
