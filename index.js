@@ -118,8 +118,8 @@ function handleEvent(event) {
         }
       }
       // use reply API
-      return client.replyMessage(event.replyToken, echo);
-      // return client.replyMessage(event.replyToken, test);
+      // return client.replyMessage(event.replyToken, echo);
+      return client.replyMessage(event.replyToken, test);
     });
   } else {
     var result = user.then((profile) => {
