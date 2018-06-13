@@ -64,16 +64,16 @@ function handleEvent(event) {
               "actions": [{
                   "type": "message",
                   "label": "蘋果",
-                  "data": "apple"
+                  "data": "apple1"
                 },
                 {
                   "type": "message",
-                  "label": "蘋果",
-                  "data": "apple"
+                  "label": "蘋果2",
+                  "data": "apple2"
                 },
                 {
                   "type": "message",
-                  "label": "蘋果",
+                  "label": "蘋果3",
                   "data": "蘋果"
                 }
               ]
