@@ -6,7 +6,8 @@ const appleCrawler =  new Promise((resolve, reject) => {
         const url   = 'https://tw.appledaily.com/search'
         const today = dateFormate(new Date());
         const queryStr = "食藥署 食品藥物管理署 食品 食物 藥品安全 藥物 藥品 闢謠 醫療器材 化妝品 化粧品 醫材 藥物 藥妝 藥品安全 食安法 食安 抽驗 衛生局"
-
+        const body = "querystrA="+queryStr+"&searchType=text&searchMode=Adv&page=1&sdate="+today+"&edate="+today+"&source="
+        console.log(body);
         request.post({
             headers: {'content-type' : 'application/x-www-form-urlencoded'},
             url:     url,
