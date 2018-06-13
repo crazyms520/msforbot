@@ -1,10 +1,10 @@
 const request = require('request');
 const cheerio = require('cheerio');
-const dataFormate = require('./dateFormate');
+const dateFormate = require('./dateFormate');
 
 const appleCrawler =  new Promise((resolve, reject) => {
         const url = 'https://tw.appledaily.com/search'
-        console.log(dataFormate);
+        console.log(dateFormate);
         let today = dateFormate(new Date());
         console.log(today);
         let results = request.post({
