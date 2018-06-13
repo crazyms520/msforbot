@@ -102,6 +102,9 @@ function handleEvent(event) {
           }
         }
         // use reply API
+        user.then((profile) => {
+          return client.replyMessage(event.replyToken, echo);
+        });
         // return client.replyMessage(event.replyToken, echo);
       // });
     }
@@ -114,14 +117,13 @@ function handleEvent(event) {
         text: 'I am apple'
       }
       // use reply API
+      user.then((profile) => {
+        return client.replyMessage(event.replyToken, echo);
+      });
       // return client.replyMessage(event.replyToken, echo);
     // });
   }
-  console.log(echo);
-  console.log('end');
-  user.then((profile) => {
-    return client.replyMessage(event.replyToken, echo);
-  });
+  
   // if (event.type == 'message' && event.message.text == '??') {
   //   user.then((profile) => {
   //     // }).then(appleCrawler).then((echo) => {
