@@ -19,7 +19,7 @@ const client = new line.Client(config);
 const app = express();
 // register a webhook handler with middleware
 // about the middleware, please refer to doc
-let echo;
+let echo = {};
 app.post('/callback', line.middleware(config), (req, res) => {
   console.log(req.body.events);
   Promise
@@ -120,6 +120,7 @@ function handleEvent(event) {
       // return client.replyMessage(event.replyToken, echo);
     // });
   }
+  console.log(echo);
   console.log('end');
   return client.replyMessage(event.replyToken, echo);
   // if (event.type == 'message' && event.message.text == '??') {
