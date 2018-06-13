@@ -108,7 +108,7 @@ function handleEvent(event) {
       // return client.replyMessage(event.replyToken, echo);
       return client.replyMessage(event.replyToken, test);
     });
-  } else if (event.message.data == 'apple') {
+  } else if (event.postback.data == 'apple') {
     var result = user.then((profile) => {
       // create a echoing text message
       const echo = {
