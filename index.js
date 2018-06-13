@@ -64,19 +64,19 @@ function handleEvent(event) {
                       "type": "postback",
                       "label": "蘋果",
                       "data": "apple",
-                      "text": "",
+                      "text": "選擇蘋果",
                     },
                     {
                       "type": "postback",
                       "label": "自由",
                       "data": "free",
-                      "text": "",
+                      "text": "選擇自由",
                     },
                     {
                       "type": "message",
                       "label": "聯合",
                       "data": "union",
-                      "text": "",
+                      "text": "選擇聯合",
                     }
                   ]
                 },
