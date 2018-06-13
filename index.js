@@ -51,7 +51,7 @@ function handleEvent(event) {
     var user = client.getGroupMemberProfile(event.source.groupId, event.source.userId);
   }
 
-  if (event.message.text == '蘋果') {
+  if (event.type == 'message' && event.message.text == '蘋果') {
     user.then((profile) => {
       return profile
     }).then((echo) =>{
