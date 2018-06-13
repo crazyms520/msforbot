@@ -59,15 +59,8 @@ function handleEvent(event) {
         "template": {
           "type": "carousel",
           "columns": [{
-              "thumbnailImageUrl": "",
-              "imageBackgroundColor": "",
               "title": "新聞查詢",
               "text": "description",
-              "defaultAction": {
-                "type": "uri",
-                "label": "View detail",
-                "uri": "http://example.com/page/123"
-              },
               "actions": [{
                   "type": "postback",
                   "label": "Buy",
