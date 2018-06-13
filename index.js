@@ -59,9 +59,7 @@ function handleEvent(event) {
         "template": {
           "type": "carousel",
           "columns": [{
-              "thumbnailImageUrl": "https://example.com/bot/images/item1.jpg",
-              "imageBackgroundColor": "#FFFFFF",
-              "title": "this is menu",
+              "title": "新聞查詢",
               "text": "description",
               "defaultAction": {
                 "type": "uri",
