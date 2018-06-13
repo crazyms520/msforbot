@@ -37,9 +37,9 @@ function handleEvent(event) {
   console.log('event')
   console.log(event);
   // if (event.type !== 'message' || event.message.type !== 'text' || event.type !== 'postback') {
-  
+
   if (event.type !== 'message' && event.type !== 'postback') {
-  //   // ignore non-text-message event
+    //   // ignore non-text-message event
     return Promise.resolve(null);
   }
 
@@ -50,93 +50,160 @@ function handleEvent(event) {
   } else {
     var user = client.getGroupMemberProfile(event.source.groupId, event.source.userId);
   }
-
-  if (event.type == 'message' && event.message.text == '蘋果') {
-    user.then((profile) => {
-      return profile
-    }).then((echo) =>{
-    // }).then(appleCrawler).then((echo) => {
-      // create a echoing text message
-      // const echo = { type: 'text', text: profile.displayName+' say : '+ apple }
-      const test = {
-        "type": "template",
-        "altText": "風暴兵的回覆",
-        "template": {
-          "type": "carousel",
-          "columns": [{
-              "title": "新聞查詢",
-              "text": "請選擇品牌",
-              "actions": [{
-                  "type":"postback",
-                  "label":"蘋果",
-                  "data":"apple",
-                  "text":"apple"
-                },
-                {
-                  "type": "message",
-                  "label": "蘋果2",
-                  "text": "apple2"
-                },
-                {
-                  "type": "message",
-                  "label": "蘋果3",
-                  "text": "蘋果"
-                }
-              ]
-            },
-            {
-              "title": "this is menu",
-              "text": "description",
-              "actions": [{
-                  "type": "postback",
-                  "label": "Buy",
-                  "data": "action=buy&itemid=222"
-                },
-                {
-                  "type": "postback",
-                  "label": "Add to cart",
-                  "data": "action=add&itemid=222"
-                },
-                {
-                  "type": "uri",
-                  "label": "View detail",
-                  "uri": "http://example.com/page/222"
-                }
-              ]
-            }
-          ],
-          "imageAspectRatio": "rectangle",
-          "imageSize": "cover"
+  if (event.type === 'message') {
+    if (event.message.text == '??') {
+      // user.then((profile) => {
+        const echo = {
+          "type": "template",
+          "altText": "風暴兵的回覆",
+          "template": {
+            "type": "carousel",
+            "columns": [{
+                "title": "新聞查詢",
+                "text": "請選擇品牌",
+                "actions": [{
+                    "type": "postback",
+                    "label": "蘋果",
+                    "data": "apple",
+                  },
+                  {
+                    "type": "postback",
+                    "label": "自由",
+                    "data": "apple"
+                  },
+                  {
+                    "type": "message",
+                    "label": "聯合",
+                    "data": "union"
+                  }
+                ]
+              },
+              {
+                "title": "this is menu",
+                "text": "description",
+                "actions": [{
+                    "type": "postback",
+                    "label": "Buy",
+                    "data": "action=buy&itemid=222"
+                  },
+                  {
+                    "type": "postback",
+                    "label": "Add to cart",
+                    "data": "action=add&itemid=222"
+                  },
+                  {
+                    "type": "uri",
+                    "label": "View detail",
+                    "uri": "http://example.com/page/222"
+                  }
+                ]
+              }
+            ],
+            "imageAspectRatio": "rectangle",
+            "imageSize": "cover"
+          }
         }
-      }
-      // use reply API
-      // return client.replyMessage(event.replyToken, echo);
-      return client.replyMessage(event.replyToken, test);
-    });
-  } else if (event.postback.data == 'apple') {
-    console.log('postback');
-    console.log(event.postback);
-    user.then((profile) => {
+        // use reply API
+        // return client.replyMessage(event.replyToken, echo);
+      // });
+    }
+
+  } else if (event.type === 'postback') {
+    // user.then((profile) => {
       // create a echoing text message
       const echo = {
         type: 'text',
         text: 'I am apple'
       }
       // use reply API
-      return client.replyMessage(event.replyToken, echo);
-    });
-    
-  } else {
-    user.then((profile) => {
-      // create a echoing text message
-      const echo = {
-        type: 'text',
-        text: profile.displayName + ' say : ' + event.message.text
-      }
-      // use reply API
-      return client.replyMessage(event.replyToken, echo);
-    });
+      // return client.replyMessage(event.replyToken, echo);
+    // });
   }
+
+  return client.replyMessage(event.replyToken, echo);
+  // if (event.type == 'message' && event.message.text == '??') {
+  //   user.then((profile) => {
+  //     // }).then(appleCrawler).then((echo) => {
+  //     // create a echoing text message
+  //     // const echo = { type: 'text', text: profile.displayName+' say : '+ apple }
+  //     const test = {
+  //       "type": "template",
+  //       "altText": "風暴兵的回覆",
+  //       "template": {
+  //         "type": "carousel",
+  //         "columns": [{
+  //             "title": "新聞查詢",
+  //             "text": "請選擇品牌",
+  //             "actions": [{
+  //                 "type": "postback",
+  //                 "label": "蘋果",
+  //                 "data": "apple",
+  //               },
+  //               {
+  //                 "type": "postback",
+  //                 "label": "自由",
+  //                 "data": "apple"
+  //               },
+  //               {
+  //                 "type": "message",
+  //                 "label": "聯合",
+  //                 "data": "union"
+  //               }
+  //             ]
+  //           },
+  //           {
+  //             "title": "this is menu",
+  //             "text": "description",
+  //             "actions": [{
+  //                 "type": "postback",
+  //                 "label": "Buy",
+  //                 "data": "action=buy&itemid=222"
+  //               },
+  //               {
+  //                 "type": "postback",
+  //                 "label": "Add to cart",
+  //                 "data": "action=add&itemid=222"
+  //               },
+  //               {
+  //                 "type": "uri",
+  //                 "label": "View detail",
+  //                 "uri": "http://example.com/page/222"
+  //               }
+  //             ]
+  //           }
+  //         ],
+  //         "imageAspectRatio": "rectangle",
+  //         "imageSize": "cover"
+  //       }
+  //     }
+  //     // use reply API
+  //     // return client.replyMessage(event.replyToken, echo);
+  //     return client.replyMessage(event.replyToken, test);
+  //   });
+  // } else if (event.type == 'postback') {
+  //   console.log('postback');
+  //   console.log(event.postback);
+  //   user.then((profile) => {
+  //     // create a echoing text message
+  //     const echo = {
+  //       type: 'text',
+  //       text: 'I am apple'
+  //     }
+  //     // use reply API
+  //     return client.replyMessage(event.replyToken, echo);
+  //   });
+
+  // } else {
+  //   user.then((profile) => {
+  //     // create a echoing text message
+  //     const echo = {
+  //       type: 'text',
+  //       text: profile.displayName + ' say : ' + event.message.text
+  //     }
+  //     // use reply API
+  //     return client.replyMessage(event.replyToken, echo);
+  //   });
+  // }
 }
 
 // listen on port
