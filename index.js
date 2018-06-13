@@ -62,9 +62,10 @@ function handleEvent(event) {
               "title": "新聞查詢",
               "text": "請選擇品牌",
               "actions": [{
-                  "type": "message",
-                  "label": "蘋果",
-                  "text": "apple1"
+                  "type":"postback",
+                  "label":"蘋果",
+                  "data":"action=buy&itemid=111",
+                  "text":"apple"
                 },
                 {
                   "type": "message",
