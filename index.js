@@ -50,10 +50,8 @@ function handleEvent(event) {
 
   if (event.type === 'message') {
     console.log('message');
-    if (event.message.text == '??') {
-      // user.then((profile) => {
-        
-        // use reply API
+    if (event.message.text === '??') {
+        console.log(event.message.text)
         user.then((profile) => {
           const echo = {
             "type": "template",
@@ -105,10 +103,9 @@ function handleEvent(event) {
               "imageSize": "cover"
             }
           }
+          // use reply API
           return client.replyMessage(event.replyToken, echo);
         });
-        // return client.replyMessage(event.replyToken, echo);
-      // });
     }
 
   } else if (event.type === 'postback') {
