@@ -64,7 +64,7 @@ function handleEvent(event) {
               "actions": [{
                   "type":"postback",
                   "label":"蘋果",
-                  "data":"action=buy&itemid=111",
+                  "data":"apple",
                   "text":"apple"
                 },
                 {
