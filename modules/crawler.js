@@ -4,7 +4,7 @@ const dataFormate = require('./dataFormate');
 
 const appleCrawler =  new Promise((resolve, reject) => {
         const url = 'https://tw.appledaily.com/search'
-        let today = dateFormate(Date.now());
+        let today = dateFormate(new Date());
         let results = request.post({
             headers: {'content-type' : 'application/x-www-form-urlencoded'},
             url:     url,
