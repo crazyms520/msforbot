@@ -36,10 +36,10 @@ app.post('/callback', line.middleware(config), (req, res) => {
 function handleEvent(event) {
   console.log('event')
   console.log(event);
-  if (event.type !== 'message' || event.message.type !== 'text' || event.type !== 'postback') {
-    // ignore non-text-message event
-    return Promise.resolve(null);
-  }
+  // if (event.type !== 'message' || event.message.type !== 'text' || event.type !== 'postback') {
+  //   // ignore non-text-message event
+  //   return Promise.resolve(null);
+  // }
 
   // if (event.message.text == '??') 
 
