@@ -10,7 +10,7 @@ const appleCrawler =  new Promise((resolve, reject) => {
         let data = [];
         
         for (const key in queryStr) {
-            if (object.hasOwnProperty(key)) {
+            if (queryStr.hasOwnProperty(key)) {
                 request.post({
                     headers: {'content-type' : 'application/x-www-form-urlencoded'},
                     url:     url,
@@ -18,11 +18,8 @@ const appleCrawler =  new Promise((resolve, reject) => {
                 }, function(error, response, body){
                     let $ = cheerio.load(body);
                     $('.tbb > h2').each(function(i, elem) {
-                        // results.push('蘋果')
                         data.push((i+1)+'. '+$(this).text() + '\n' + $(this).children('a').attr('href'))
-                        // data.push($(this).children('a').attr('href')+'\n')
                     })
-                    data = data.join('\n')
                     
                     if (key == queryStr.length) {
                         const status = true;
@@ -33,6 +30,7 @@ const appleCrawler =  new Promise((resolve, reject) => {
         }
 
         if (stauts) {
+            data = data.join('\n')
             const echo = { type: 'text', text: data }
                     resolve (echo);
         }
