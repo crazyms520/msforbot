@@ -41,11 +41,12 @@ function handleEvent(event) {
   }
 
   // if (event.message.text == '??') 
+  console.log(event.source.type);
 
   if (event.source.type == 'user') {
-    var user = client.getProfile(event.source.userId);
+    let user = client.getProfile(event.source.userId);
   } else {
-    var user = client.getGroupMemberProfile(event.source.groupId, event.source.userId);
+    let user = client.getGroupMemberProfile(event.source.groupId, event.source.userId);
   }
 
   if (event.type === 'message') {
