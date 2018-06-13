@@ -10,7 +10,7 @@ const appleCrawler =  new Promise((resolve, reject) => {
         let results = request.post({
             headers: {'content-type' : 'application/x-www-form-urlencoded'},
             url:     url,
-            body:    "querystrA=食安&searchType=text&searchMode=Adv&page=1&sdate="+dateFormate+"&edate="+dateFormate+"&source="
+            body:    "querystrA=食安&searchType=text&searchMode=Adv&page=1&sdate="+today+"&edate="+today+"&source="
         }, function(error, response, body){
             let data = [];
             let $ = cheerio.load(body);
