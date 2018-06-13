@@ -47,7 +47,9 @@ function handleEvent(event) {
   } else {
     var user = client.getGroupMemberProfile(event.source.groupId, event.source.userId);
   }
+
   if (event.type === 'message') {
+    console.log('message');
     if (event.message.text == '??') {
       // user.then((profile) => {
         
