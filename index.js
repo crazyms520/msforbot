@@ -34,6 +34,8 @@ app.post('/callback', line.middleware(config), (req, res) => {
 
 // event handler
 function handleEvent(event) {
+  console.log('event')
+  console.log(event);
   if (event.type !== 'message' || event.message.type !== 'text') {
     // ignore non-text-message event
     return Promise.resolve(null);
@@ -108,7 +110,7 @@ function handleEvent(event) {
       // return client.replyMessage(event.replyToken, echo);
       return client.replyMessage(event.replyToken, test);
     });
-  } else if (event.postback.data == 'apple') {
+  } else if (event.postback.text == 'apple') {
     console.log('postback');
     console.log(event.postback);
     var result = user.then((profile) => {
