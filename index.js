@@ -56,14 +56,14 @@ function handleEvent(event) {
       // use reply API
       const test = {
         "type": "template",
-        "altText": "this is a carousel template",
+        "altText": "",
         "template": {
           "type": "carousel",
           "columns": [{
-              "thumbnailImageUrl": "https://example.com/bot/images/item1.jpg",
-              "imageBackgroundColor": "#FFFFFF",
+              // "thumbnailImageUrl": "https://example.com/bot/images/item1.jpg",
+              // "imageBackgroundColor": "#FFFFFF",
               "title": "this is menu",
-              "text": "description",
+              "text": "新聞",
               "defaultAction": {
                 "type": "uri",
                 "label": "View detail",
