@@ -1,8 +1,7 @@
 const request = require('request');
 const cheerio = require('cheerio');
 
-const appleCrawler = function (profile) {
-    return new Promise((resolve, reject) => {
+const appleCrawler =  new Promise((resolve, reject) => {
         const url = 'https://tw.appledaily.com/search'
         let data = [];
         let results = request.post({
@@ -24,6 +23,5 @@ const appleCrawler = function (profile) {
         });
     });
     
-}
 
 module.exports = appleCrawler;
