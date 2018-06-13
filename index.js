@@ -50,10 +50,10 @@ function handleEvent(event) {
   }
 
   if (event.type === 'message') {
-    console.log('message');
     if (event.message.text === '??') {
-        console.log(event.message.text)
+      console.log(user);
         user.then((profile) => {
+          console.log(profile);
           const echo = {
             "type": "template",
             "altText": "風暴兵的回覆",
