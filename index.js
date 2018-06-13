@@ -19,7 +19,6 @@ const client = new line.Client(config);
 const app = express();
 // register a webhook handler with middleware
 // about the middleware, please refer to doc
-let echo = {};
 app.post('/callback', line.middleware(config), (req, res) => {
   Promise
     .all(req.body.events.map(handleEvent))
@@ -51,58 +50,59 @@ function handleEvent(event) {
   if (event.type === 'message') {
     if (event.message.text == '??') {
       // user.then((profile) => {
-        echo = {
-          "type": "template",
-          "altText": "風暴兵的回覆",
-          "template": {
-            "type": "carousel",
-            "columns": [{
-                "title": "新聞查詢",
-                "text": "請選擇品牌",
-                "actions": [{
-                    "type": "postback",
-                    "label": "蘋果",
-                    "data": "apple",
-                  },
-                  {
-                    "type": "postback",
-                    "label": "自由",
-                    "data": "apple"
-                  },
-                  {
-                    "type": "message",
-                    "label": "聯合",
-                    "data": "union"
-                  }
-                ]
-              },
-              {
-                "title": "this is menu",
-                "text": "description",
-                "actions": [{
-                    "type": "postback",
-                    "label": "Buy",
-                    "data": "action=buy&itemid=222"
-                  },
-                  {
-                    "type": "postback",
-                    "label": "Add to cart",
-                    "data": "action=add&itemid=222"
-                  },
-                  {
-                    "type": "uri",
-                    "label": "View detail",
-                    "uri": "http://example.com/page/222"
-                  }
-                ]
-              }
-            ],
-            "imageAspectRatio": "rectangle",
-            "imageSize": "cover"
-          }
-        }
+        
         // use reply API
         user.then((profile) => {
+          let echo = {
+            "type": "template",
+            "altText": "風暴兵的回覆",
+            "template": {
+              "type": "carousel",
+              "columns": [{
+                  "title": "新聞查詢",
+                  "text": "請選擇品牌",
+                  "actions": [{
+                      "type": "postback",
+                      "label": "蘋果",
+                      "data": "apple",
+                    },
+                    {
+                      "type": "postback",
+                      "label": "自由",
+                      "data": "apple"
+                    },
+                    {
+                      "type": "message",
+                      "label": "聯合",
+                      "data": "union"
+                    }
+                  ]
+                },
+                {
+                  "title": "this is menu",
+                  "text": "description",
+                  "actions": [{
+                      "type": "postback",
+                      "label": "Buy",
+                      "data": "action=buy&itemid=222"
+                    },
+                    {
+                      "type": "postback",
+                      "label": "Add to cart",
+                      "data": "action=add&itemid=222"
+                    },
+                    {
+                      "type": "uri",
+                      "label": "View detail",
+                      "uri": "http://example.com/page/222"
+                    }
+                  ]
+                }
+              ],
+              "imageAspectRatio": "rectangle",
+              "imageSize": "cover"
+            }
+          }
           return client.replyMessage(event.replyToken, echo);
         });
         // return client.replyMessage(event.replyToken, echo);
@@ -112,12 +112,13 @@ function handleEvent(event) {
   } else if (event.type === 'postback') {
     // user.then((profile) => {
       // create a echoing text message
-      echo = {
-        type: 'text',
-        text: 'I am apple'
-      }
+      
       // use reply API
       user.then((profile) => {
+        echo = {
+          type: 'text',
+          text: 'I am apple'
+        }
         return client.replyMessage(event.replyToken, echo);
       });
       // return client.replyMessage(event.replyToken, echo);
