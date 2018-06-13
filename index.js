@@ -49,12 +49,46 @@ function handleEvent(event) {
   
   if (event.message.text == '蘋果') {
     var result = user.then((profile)=>{
-      // create a echoing text message
       return profile
+    }).then(appleCrawler).then((echo) => {
+      // create a echoing text message
       // const echo = { type: 'text', text: profile.displayName+' say : '+ apple }
       // use reply API
-      // return client.replyMessage(event.replyToken, echo);
-    }).then(appleCrawler).then((echo) => {
+      const echo = {
+        "type": "template",
+        "altText": "This is a buttons template",
+        "template": {
+          "type": "buttons",
+          "thumbnailImageUrl": "https://example.com/bot/images/image.jpg",
+          "imageAspectRatio": "rectangle",
+          "imageSize": "cover",
+          "imageBackgroundColor": "#FFFFFF",
+          "title": "Menu",
+          "text": "Please select",
+          "defaultAction": {
+              "type": "uri",
+              "label": "View detail",
+              "uri": "http://example.com/page/123"
+          },
+          "actions": [
+              {
+                "type": "postback",
+                "label": "Buy",
+                "data": "action=buy&itemid=123"
+              },
+              {
+                "type": "postback",
+                "label": "Add to cart",
+                "data": "action=add&itemid=123"
+              },
+              {
+                "type": "uri",
+                "label": "View detail",
+                "uri": "http://example.com/page/123"
+              }
+          ]
+        }
+      }
       return client.replyMessage(event.replyToken, echo);
     });
   } else {
