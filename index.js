@@ -44,9 +44,9 @@ function handleEvent(event) {
   console.log(event.source.type);
 
   if (event.source.type == 'user') {
-    let user = client.getProfile(event.source.userId);
+    var user = client.getProfile(event.source.userId);
   } else {
-    let user = client.getGroupMemberProfile(event.source.groupId, event.source.userId);
+    var user = client.getGroupMemberProfile(event.source.groupId, event.source.userId);
   }
 
   if (event.type === 'message') {
@@ -79,26 +79,6 @@ function handleEvent(event) {
                     }
                   ]
                 },
-                {
-                  "title": "this is menu",
-                  "text": "description",
-                  "actions": [{
-                      "type": "postback",
-                      "label": "Buy",
-                      "data": "action=buy&itemid=222"
-                    },
-                    {
-                      "type": "postback",
-                      "label": "Add to cart",
-                      "data": "action=add&itemid=222"
-                    },
-                    {
-                      "type": "uri",
-                      "label": "View detail",
-                      "uri": "http://example.com/page/222"
-                    }
-                  ]
-                }
               ],
               "imageAspectRatio": "rectangle",
               "imageSize": "cover"
