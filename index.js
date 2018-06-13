@@ -96,7 +96,7 @@ function handleEvent(event) {
       
       // use reply API
       user.then((profile) => {
-        echo = {
+        const echo = {
           type: 'text',
           text: 'I am apple'
         }
