@@ -60,21 +60,21 @@ function handleEvent(event) {
           "type": "carousel",
           "columns": [{
               "title": "新聞查詢",
-              "text": "description",
+              "text": "請選擇品牌",
               "actions": [{
                   "type": "postback",
-                  "label": "Buy",
-                  "data": "action=buy&itemid=111"
+                  "label": "蘋果",
+                  "data": "apple"
                 },
                 {
                   "type": "postback",
-                  "label": "Add to cart",
-                  "data": "action=add&itemid=111"
+                  "label": "蘋果",
+                  "data": "apple"
                 },
                 {
-                  "type": "uri",
-                  "label": "View detail",
-                  "uri": "http://example.com/page/111"
+                  "type": "postback",
+                  "label": "蘋果",
+                  "data": "蘋果"
                 }
               ]
             },
