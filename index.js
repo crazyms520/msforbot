@@ -60,8 +60,6 @@ function handleEvent(event) {
         "template": {
           "type": "carousel",
           "columns": [{
-              // "thumbnailImageUrl": "",
-              // "imageBackgroundColor": "#FFFFFF",
               "title": "this is menu",
               "text": "新聞",
               "defaultAction": {
