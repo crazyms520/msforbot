@@ -50,9 +50,10 @@ function handleEvent(event) {
   }
 
   if (event.message.text == '蘋果') {
-    var result = user.then((profile) => {
+    user.then((profile) => {
       return profile
-    }).then(appleCrawler).then((echo) => {
+    }).then((echo) =>{
+    // }).then(appleCrawler).then((echo) => {
       // create a echoing text message
       // const echo = { type: 'text', text: profile.displayName+' say : '+ apple }
       const test = {
@@ -113,7 +114,7 @@ function handleEvent(event) {
   } else if (event.postback.data == 'apple') {
     console.log('postback');
     console.log(event.postback);
-    var result = user.then((profile) => {
+    user.then((profile) => {
       // create a echoing text message
       const echo = {
         type: 'text',
@@ -124,7 +125,7 @@ function handleEvent(event) {
     });
     
   } else {
-    var result = user.then((profile) => {
+    user.then((profile) => {
       // create a echoing text message
       const echo = {
         type: 'text',
