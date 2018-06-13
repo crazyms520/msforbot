@@ -55,7 +55,7 @@ function handleEvent(event) {
         
         // use reply API
         user.then((profile) => {
-          let echo = {
+          const echo = {
             "type": "template",
             "altText": "風暴兵的回覆",
             "template": {
