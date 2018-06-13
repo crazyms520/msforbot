@@ -19,7 +19,7 @@ const appleCrawler = function (profile) {
             })
             data = data.join('\n')
             
-            const echo = { type: 'text', text: data }
+            // const echo = { type: 'text', text: data }
             resolve (echo);
         });
     });
