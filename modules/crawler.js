@@ -1,13 +1,14 @@
 const request = require('request');
 const cheerio = require('cheerio');
+const dataFormate = require('./dataFormate');
 
 const appleCrawler =  new Promise((resolve, reject) => {
         const url = 'https://tw.appledaily.com/search'
-        let data = [];
+        let today = dateFormate(Date.now());
         let results = request.post({
             headers: {'content-type' : 'application/x-www-form-urlencoded'},
             url:     url,
-            body:    "querystrA=食安&searchType=text&searchMode=Adv&page=1&sdate=2018-06-11&edate=2018-06-11&source="
+            body:    "querystrA=食安&searchType=text&searchMode=Adv&page=1&sdate="+dateFormate+"&edate="+dateFormate+"&source="
         }, function(error, response, body){
             let data = [];
             let $ = cheerio.load(body);
