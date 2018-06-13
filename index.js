@@ -49,9 +49,7 @@ function handleEvent(event) {
 
   if (event.type === 'message') {
     if (event.message.text === '??') {
-      console.log(user);
-        user.then((profile) => {
-          console.log(profile);
+        // user.then((profile) => {
           const echo = {
             "type": "template",
             "altText": "風暴兵的回覆",
@@ -87,13 +85,20 @@ function handleEvent(event) {
           }
           // use reply API
           return client.replyMessage(event.replyToken, echo);
-        });
+        // });
     }
 
   } else if (event.type === 'postback') {
     // user.then((profile) => {
       // create a echoing text message
-      
+      switch (event.postback) {
+        case 'apple':
+          break;
+        case 'free':
+          break;
+        case 'union':
+          break;
+      }
       // use reply API
       user.then((profile) => {
         const echo = {
