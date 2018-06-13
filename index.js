@@ -41,8 +41,6 @@ function handleEvent(event) {
   }
 
   // if (event.message.text == '??') 
-  console.log(event.source.type);
-
   if (event.source.type == 'user') {
     var user = client.getProfile(event.source.userId);
   } else {
@@ -66,16 +64,19 @@ function handleEvent(event) {
                       "type": "postback",
                       "label": "蘋果",
                       "data": "apple",
+                      "text": "蘋果",
                     },
                     {
                       "type": "postback",
                       "label": "自由",
-                      "data": "apple"
+                      "data": "free",
+                      "text": "自由",
                     },
                     {
                       "type": "message",
                       "label": "聯合",
-                      "data": "union"
+                      "data": "union",
+                      "text": "聯合",
                     }
                   ]
                 },
