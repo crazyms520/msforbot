@@ -79,15 +79,8 @@ function handleEvent(event) {
               ]
             },
             {
-              "thumbnailImageUrl": "https://example.com/bot/images/item2.jpg",
-              "imageBackgroundColor": "#000000",
               "title": "this is menu",
               "text": "description",
-              "defaultAction": {
-                "type": "uri",
-                "label": "View detail",
-                "uri": "http://example.com/page/222"
-              },
               "actions": [{
                   "type": "postback",
                   "label": "Buy",
