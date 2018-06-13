@@ -8,7 +8,7 @@ const appleCrawler = function (profile) {
         let results = request.post({
             headers: {'content-type' : 'application/x-www-form-urlencoded'},
             url:     url,
-            body:    "querystrS=食安&searchType=text&searchMode=Sim"
+            body:    "querystrA=食安&searchType=text&searchMode=Adv&page=1&sdate=2018-06-11&edate=2018-06-11&source="
         }, function(error, response, body){
             let data = [];
             let $ = cheerio.load(body);
