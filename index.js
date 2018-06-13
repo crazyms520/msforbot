@@ -100,13 +100,16 @@ function handleEvent(event) {
           break;
       }
       // use reply API
-      user.then((profile) => {
-        const echo = {
-          type: 'text',
-          text: 'I am apple'
-        }
+      appleCrawler.then((echo) => {
         return client.replyMessage(event.replyToken, echo);
       });
+      // user.then((profile) => {
+      //   const echo = {
+      //     type: 'text',
+      //     text: 'I am apple'
+      //   }
+      //   return client.replyMessage(event.replyToken, echo);
+      // });
       // return client.replyMessage(event.replyToken, echo);
     // });
   }
