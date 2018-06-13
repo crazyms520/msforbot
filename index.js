@@ -55,7 +55,7 @@ function handleEvent(event) {
       // const echo = { type: 'text', text: profile.displayName+' say : '+ apple }
       const test = {
         "type": "template",
-        "altText": "this is a carousel template",
+        "altText": "風暴兵的回覆",
         "template": {
           "type": "carousel",
           "columns": [{
