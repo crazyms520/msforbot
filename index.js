@@ -56,11 +56,11 @@ function handleEvent(event) {
       // use reply API
       const test = {
         "type": "template",
-        "altText": "This is a buttons template",
+        "altText": "",
         "template": {
-          "type": "buttons",
-          "thumbnailImageUrl": "https://example.com/bot/images/image.jpg",
-          "imageAspectRatio": "rectangle",
+          "type": "carousel",
+          // "thumbnailImageUrl": "https://example.com/bot/images/image.jpg",
+          // "imageAspectRatio": "rectangle",
           "imageSize": "cover",
           "imageBackgroundColor": "#FFFFFF",
           "title": "Menu",
