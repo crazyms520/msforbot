@@ -37,9 +37,11 @@ function handleEvent(event) {
   console.log('event')
   console.log(event);
   // if (event.type !== 'message' || event.message.type !== 'text' || event.type !== 'postback') {
+  
+  if (event.type !== 'message' && event.type !== 'postback') {
   //   // ignore non-text-message event
-  //   return Promise.resolve(null);
-  // }
+    return Promise.resolve(null);
+  }
 
   // if (event.message.text == '??') 
 
