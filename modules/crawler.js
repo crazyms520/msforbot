@@ -4,10 +4,9 @@ const dateFormate = require('./dateFormate');
 
 const appleCrawler =  new Promise((resolve, reject) => {
         const url = 'https://tw.appledaily.com/search'
-        console.log(dateFormate);
-        let today = dateFormate(new Date());
-        console.log(today);
-        let results = request.post({
+        const today = dateFormate(new Date());
+
+        request.post({
             headers: {'content-type' : 'application/x-www-form-urlencoded'},
             url:     url,
             body:    "querystrA=食安&searchType=text&searchMode=Adv&page=1&sdate="+today+"&edate="+today+"&source="
