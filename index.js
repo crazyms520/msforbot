@@ -21,7 +21,6 @@ const app = express();
 // about the middleware, please refer to doc
 let echo = {};
 app.post('/callback', line.middleware(config), (req, res) => {
-  console.log(req.body.events);
   Promise
     .all(req.body.events.map(handleEvent))
     .then((result) => {
@@ -35,8 +34,6 @@ app.post('/callback', line.middleware(config), (req, res) => {
 
 // event handler
 function handleEvent(event) {
-  console.log('event')
-  console.log(event);
   // if (event.type !== 'message' || event.message.type !== 'text' || event.type !== 'postback') {
 
   if (event.type !== 'message' && event.type !== 'postback') {
@@ -122,7 +119,9 @@ function handleEvent(event) {
   }
   console.log(echo);
   console.log('end');
-  return client.replyMessage(event.replyToken, echo);
+  user.then((profile) => {
+    return client.replyMessage(event.replyToken, echo);
+  });
   // if (event.type == 'message' && event.message.text == '??') {
   //   user.then((profile) => {
   //     // }).then(appleCrawler).then((echo) => {
