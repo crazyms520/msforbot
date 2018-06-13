@@ -108,6 +108,17 @@ function handleEvent(event) {
       // return client.replyMessage(event.replyToken, echo);
       return client.replyMessage(event.replyToken, test);
     });
+  } else if (event.message.data == 'apple') {
+    var result = user.then((profile) => {
+      // create a echoing text message
+      const echo = {
+        type: 'text',
+        text: 'I am apple'
+      }
+      // use reply API
+      return client.replyMessage(event.replyToken, echo);
+    });
+    
   } else {
     var result = user.then((profile) => {
       // create a echoing text message
