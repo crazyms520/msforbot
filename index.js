@@ -62,17 +62,17 @@ function handleEvent(event) {
               "title": "新聞查詢",
               "text": "請選擇品牌",
               "actions": [{
-                  "type": "postback",
+                  "type": "message",
                   "label": "蘋果",
                   "data": "apple"
                 },
                 {
-                  "type": "postback",
+                  "type": "message",
                   "label": "蘋果",
                   "data": "apple"
                 },
                 {
-                  "type": "postback",
+                  "type": "message",
                   "label": "蘋果",
                   "data": "蘋果"
                 }
