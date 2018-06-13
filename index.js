@@ -43,11 +43,11 @@ function handleEvent(event) {
 
   // if (event.message.text == '??') 
 
-  // if (event.source.type == 'user') {
-  //   var user = client.getProfile(event.source.userId);
-  // } else {
-  //   var user = client.getGroupMemberProfile(event.source.groupId, event.source.userId);
-  // }
+  if (event.source.type == 'user') {
+    var user = client.getProfile(event.source.userId);
+  } else {
+    var user = client.getGroupMemberProfile(event.source.groupId, event.source.userId);
+  }
   if (event.type === 'message') {
     if (event.message.text == '??') {
       // user.then((profile) => {
