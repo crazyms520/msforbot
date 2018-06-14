@@ -93,7 +93,7 @@ function handleEvent(event) {
     // user.then((profile) => {
     // create a echoing text message
     console.log(event.postback);
-    switch (event.postback) {
+    switch (event.postback.data) {
       case 'apple':
         console.log('this in apple');
         console.log(appleCrawler);
