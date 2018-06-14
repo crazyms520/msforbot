@@ -110,11 +110,13 @@ function handleEvent(event) {
           }).then((test) => {
             console.log(event);
             console.log(client);
-            const test2 = {
+            const test2 = [{
               type: 'text',
-              text: '111',
               text: '1112',
-            }
+            },{
+              type: 'text',
+              text: '1113',
+            }]
             return client.replyMessage(event.replyToken, test2);
           })
           .catch((err) => {
