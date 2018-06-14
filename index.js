@@ -98,8 +98,9 @@ function handleEvent(event) {
           .all(queryStr.map(appleCrawler))
           .then((result) => {
             const data1 = result[0].concat(result[1],result[2],result[3],result[4],result[5],result[6],result[7],result[8],result[9],result[10]);
-            const data1 = data1.join('\n')
+            data1 = data1.join('\n')
             const data2 = result[11].concat(result[12],result[13],result[14],result[15],result[16],result[17],result[18]);
+            data2 = data2.join('\n')
             const echo = [{
               type: 'text',
               text: data1
