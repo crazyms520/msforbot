@@ -110,7 +110,11 @@ function handleEvent(event) {
           }).then((test) => {
             console.log(event);
             console.log(client);
-            // return client.replyMessage(event.replyToken, test);
+            const test2 = {
+              type: 'text',
+              text: '111'
+            }
+            return client.replyMessage(event.replyToken, test2);
           })
           .catch((err) => {
             console.error('err:' + err);
