@@ -105,10 +105,6 @@ function handleEvent(event) {
             const echo = [{
                 type: 'text',
                 text: data1
-              },
-              {
-                type: 'text',
-                text: data2
               }
             ]
             return client.replyMessage(event.replyToken, echo);
