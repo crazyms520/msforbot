@@ -27,6 +27,8 @@ function crawler(query) {
     });
 }
 
+module.exports = crawler;
+
 // const fulfilled = Promise
 //     .all(queryStr.map(crawler))
 //     .then((result) => {
