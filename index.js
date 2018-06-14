@@ -107,17 +107,10 @@ function handleEvent(event) {
               type: 'text',
               text: data
             }
-            console.log('data');
-            console.log(data);
-            console.log('echo');
-            console.log(echo);
-
             return client.replyMessage(event.replyToken, echo);
-
           })
           .catch((err) => {
             console.error('err:' + err);
-            res.status(500).end();
           });
         break;
       case 'free':
