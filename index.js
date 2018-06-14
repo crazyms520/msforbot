@@ -99,7 +99,7 @@ function handleEvent(event) {
           .then((result) => {
             // console.log(crawler)
             //   console.log(result);
-            console.log(result);
+            console.log(result[0]);
             const data = result.join('\n')
             const test = {
               type: 'text',
