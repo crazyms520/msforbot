@@ -102,7 +102,7 @@ function handleEvent(event) {
           .then((result) => {
             // console.log(crawler)
             //   console.log(result);
-            data = result.join('\n')
+            const data = result.join('\n')
             const echo = {
               type: 'text',
               text: data
