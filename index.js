@@ -104,6 +104,7 @@ function handleEvent(event) {
               type: 'text',
               text: data
             }
+            console.log(echo);
             return echo ;
             
           }).then((echo) => {
