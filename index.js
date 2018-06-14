@@ -95,6 +95,7 @@ function handleEvent(event) {
     console.log(event.postback);
     switch (event.postback) {
       case 'apple':
+        console.log('this in apple');
         console.log(appleCrawler);
         Promise
           .all(queryStr.map(appleCrawler))
