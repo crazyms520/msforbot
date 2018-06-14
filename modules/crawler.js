@@ -35,6 +35,8 @@ const fulfilled = Promise
     //   console.log(result);
       data = result.join('\n')
       const echo = { type: 'text', text: data }
+        module.exports = fulfilled;
+      
       
     })
     .catch((err) => {
@@ -93,4 +95,3 @@ const fulfilled = Promise
 //     //     resolve (echo);
 //     // });
 // });
-module.exports = fulfilled;
