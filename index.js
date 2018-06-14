@@ -100,15 +100,15 @@ function handleEvent(event) {
             // console.log(crawler)
             //   console.log(result);
             const data = result.join('\n')
-            const echo = {
+            const test = {
               type: 'text',
               text: data
             }
-            console.log(echo);
-            return echo ;
+            console.log(test);
+            return test ;
             
-          }).then((echo) => {
-            return client.replyMessage(event.replyToken, echo);
+          }).then((test) => {
+            return client.replyMessage(event.replyToken, test);
           })
           .catch((err) => {
             console.error('err:' + err);
