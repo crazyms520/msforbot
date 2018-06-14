@@ -28,14 +28,13 @@ function crawler(query) {
     });
 }
 
-Promise
+const fulfilled = Promise
     .all(queryStr.map(crawler))
     .then((result) => {
         // console.log(crawler)
     //   console.log(result);
       data = result.join('\n')
       const echo = { type: 'text', text: data }
-      module.exports = echo;
       
     })
     .catch((err) => {
@@ -94,3 +93,4 @@ Promise
 //     //     resolve (echo);
 //     // });
 // });
+module.exports = fulfilled;
