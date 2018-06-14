@@ -100,10 +100,10 @@ function handleEvent(event) {
           break;
       }
       // use reply API
-      console.log(appleCrawler);
-      appleCrawler.then((echo) => {
-        return client.replyMessage(event.replyToken, echo);
-      });
+      // console.log(appleCrawler);
+      // appleCrawler.then((echo) => {
+        return client.replyMessage(event.replyToken, appleCrawler);
+      // });
       // user.then((profile) => {
       //   const echo = {
       //     type: 'text',

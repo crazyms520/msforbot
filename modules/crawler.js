@@ -19,7 +19,7 @@ function crawler(query) {
             body: body
         }, function (error, response, body) {
             let $ = cheerio.load(body);
-            result.push(query);
+            result.push(query+'\n');
             $('.tbb > h2').each(function (i, elem) {
                 result.push((i + 1) + '. ' + $(this).text() + '\n' + $(this).children('a').attr('href'))
             })
@@ -34,11 +34,13 @@ Promise
         // console.log(crawler)
     //   console.log(result);
       data = result.join('\n')
+      const echo = { type: 'text', text: data }
     })
     .catch((err) => {
       console.error('err:' + err);
       res.status(500).end();
     });
+
 // const appleCrawler = new Promise((resolve, reject) => {
 //     const url = 'https://tw.appledaily.com/search'
 //     const today = dateFormate(new Date());
@@ -92,4 +94,4 @@ Promise
 // });
 
 
-module.exports = data;
+module.exports = echo;
