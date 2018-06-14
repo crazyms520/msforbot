@@ -19,7 +19,6 @@ function crawler(query) {
         }, function (error, response, body) {
             let $ = cheerio.load(body);
             $('.tbb > h2').each(function (i, elem) {
-                // result.push((i + 1) + '. ' + $(this).text() + '\n' + $(this).children('a').attr('href') + '\n')
                 result.push('['+query+']\n'+(i + 1) + '. ' + $(this).text() + '\n' + $(this).children('a').attr('href') + '\n')
             })
             resolve(result);
