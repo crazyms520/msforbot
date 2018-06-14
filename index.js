@@ -112,9 +112,10 @@ function handleEvent(event) {
             console.log(client);
             const test2 = {
               type: 'text',
-              text: '111'
+              text: '111',
+              text: '1112',
             }
-            return client.replyMessage(event.replyToken, test2, test2);
+            return client.replyMessage(event.replyToken, test2);
           })
           .catch((err) => {
             console.error('err:' + err);
