@@ -18,9 +18,9 @@ function crawler(query) {
             body: body
         }, function (error, response, body) {
             let $ = cheerio.load(body);
-            result.push(query+'\n');
             $('.tbb > h2').each(function (i, elem) {
-                result.push((i + 1) + '. ' + $(this).text() + '\n' + $(this).children('a').attr('href'))
+                // result.push((i + 1) + '. ' + $(this).text() + '\n' + $(this).children('a').attr('href') + '\n')
+                result.push('['+query+']\n'+(i + 1) + '. ' + $(this).text() + '\n' + $(this).children('a').attr('href') + '\n')
             })
             resolve(result);
         });
