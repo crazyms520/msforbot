@@ -1,9 +1,8 @@
 const request = require('request');
 const cheerio = require('cheerio');
 const dateFormate = require('./dateFormate');
-let data = [];
 
-const queryStr = ["食藥署", "食品藥物管理署", "食品", "食物", "藥品安全", "藥物", "藥品", "闢謠", "醫療器材", "化妝品", "化粧品", "醫材", "藥物", "藥妝", "藥品安全", "食安法", "食安", "抽驗", "衛生局"]
+// const queryStr = ["食藥署", "食品藥物管理署", "食品", "食物", "藥品安全", "藥物", "藥品", "闢謠", "醫療器材", "化妝品", "化粧品", "醫材", "藥物", "藥妝", "藥品安全", "食安法", "食安", "抽驗", "衛生局"]
 
 function crawler(query) {
     return new Promise((resolve, reject) => {
@@ -28,21 +27,19 @@ function crawler(query) {
     });
 }
 
-const fulfilled = Promise
-    .all(queryStr.map(crawler))
-    .then((result) => {
-        // console.log(crawler)
-    //   console.log(result);
-      data = result.join('\n')
-      const echo = { type: 'text', text: data }
-        module.exports = fulfilled;
-      
-      
-    })
-    .catch((err) => {
-      console.error('err:' + err);
-      res.status(500).end();
-    });
+// const fulfilled = Promise
+//     .all(queryStr.map(crawler))
+//     .then((result) => {
+//         // console.log(crawler)
+//     //   console.log(result);
+//       data = result.join('\n')
+//       const echo = { type: 'text', text: data }
+//         module.exports = fulfilled;
+//     })
+//     .catch((err) => {
+//       console.error('err:' + err);
+//       res.status(500).end();
+//     });
 
 // const appleCrawler = new Promise((resolve, reject) => {
 //     const url = 'https://tw.appledaily.com/search'

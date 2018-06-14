@@ -11,6 +11,7 @@ const config = {
   channelID: process.env.CHANNEL_ID,
 };
 
+
 // create LINE SDK client
 const client = new line.Client(config);
 
@@ -49,72 +50,90 @@ function handleEvent(event) {
 
   if (event.type === 'message') {
     if (event.message.text === '??') {
-        // user.then((profile) => {
-          const echo = {
-            "type": "template",
-            "altText": "風暴兵的回覆",
-            "template": {
-              "type": "carousel",
-              "columns": [{
-                  "title": "新聞查詢",
-                  "text": "請選擇品牌",
-                  "actions": [{
-                      "type": "postback",
-                      "label": "蘋果",
-                      "data": "apple",
-                      "text": "選擇蘋果",
-                    },
-                    {
-                      "type": "postback",
-                      "label": "自由",
-                      "data": "free",
-                      "text": "選擇自由",
-                    },
-                    {
-                      "type": "message",
-                      "label": "聯合",
-                      "data": "union",
-                      "text": "選擇聯合",
-                    }
-                  ]
-                },
-              ],
-              "imageAspectRatio": "rectangle",
-              "imageSize": "cover"
-            }
-          }
-          // use reply API
-          return client.replyMessage(event.replyToken, echo);
-        // });
+      // user.then((profile) => {
+      const echo = {
+        "type": "template",
+        "altText": "風暴兵的回覆",
+        "template": {
+          "type": "carousel",
+          "columns": [{
+            "title": "新聞查詢",
+            "text": "請選擇品牌",
+            "actions": [{
+                "type": "postback",
+                "label": "蘋果",
+                "data": "apple",
+                "text": "選擇蘋果",
+              },
+              {
+                "type": "postback",
+                "label": "自由",
+                "data": "free",
+                "text": "選擇自由",
+              },
+              {
+                "type": "message",
+                "label": "聯合",
+                "data": "union",
+                "text": "選擇聯合",
+              }
+            ]
+          }, ],
+          "imageAspectRatio": "rectangle",
+          "imageSize": "cover"
+        }
+      }
+      // use reply API
+      return client.replyMessage(event.replyToken, echo);
+      // });
     }
 
   } else if (event.type === 'postback') {
+    const queryStr = ["食藥署", "食品藥物管理署", "食品", "食物", "藥品安全", "藥物", "藥品", "闢謠", "醫療器材", "化妝品", "化粧品", "醫材", "藥物", "藥妝", "藥品安全", "食安法", "食安", "抽驗", "衛生局"]
     // user.then((profile) => {
-      // create a echoing text message
-      switch (event.postback) {
-        case 'apple':
-          break;
-        case 'free':
-          break;
-        case 'union':
-          break;
-      }
-      // use reply API
-      console.log(appleCrawler);
-      // appleCrawler.then((echo) => {
-        return client.replyMessage(event.replyToken, appleCrawler);
-      // });
-      // user.then((profile) => {
-      //   const echo = {
-      //     type: 'text',
-      //     text: 'I am apple'
-      //   }
-      //   return client.replyMessage(event.replyToken, echo);
-      // });
-      // return client.replyMessage(event.replyToken, echo);
+    // create a echoing text message
+    switch (event.postback) {
+      case 'apple':
+        Promise
+          .all(queryStr.map(crawler))
+          .then((result) => {
+            // console.log(crawler)
+            //   console.log(result);
+            data = result.join('\n')
+            const echo = {
+              type: 'text',
+              text: data
+            }
+
+            return client.replyMessage(event.replyToken, echo);
+            
+          })
+          .catch((err) => {
+            console.error('err:' + err);
+            res.status(500).end();
+          });
+        break;
+      case 'free':
+        break;
+      case 'union':
+        break;
+    }
+    // use reply API
+
+    // appleCrawler.then((echo) => {
+    // return client.replyMessage(event.replyToken, appleCrawler);
+    // });
+    // user.then((profile) => {
+    //   const echo = {
+    //     type: 'text',
+    //     text: 'I am apple'
+    //   }
+    //   return client.replyMessage(event.replyToken, echo);
+    // });
+    // return client.replyMessage(event.replyToken, echo);
     // });
   }
-  
+
   // if (event.type == 'message' && event.message.text == '??') {
   //   user.then((profile) => {
   //     // }).then(appleCrawler).then((echo) => {
