@@ -105,12 +105,8 @@ function handleEvent(event) {
               text: data
             }
             console.log(test);
-            return test ;
             
-          }).then((test) => {
-            return client.replyMessage(event.replyToken, test);
-          })
-          .catch((err) => {
+          }).catch((err) => {
             console.error('err:' + err);
           });
         break;
