@@ -96,7 +96,7 @@ function handleEvent(event) {
     switch (event.postback) {
       case 'apple':
         Promise
-          .all(queryStr.map(crawler))
+          .all(queryStr.map(appleCrawler))
           .then((result) => {
             // console.log(crawler)
             //   console.log(result);
@@ -111,7 +111,7 @@ function handleEvent(event) {
             console.log(echo);
 
             return client.replyMessage(event.replyToken, echo);
-            
+
           })
           .catch((err) => {
             console.error('err:' + err);
