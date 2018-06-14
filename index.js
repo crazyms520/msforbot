@@ -114,6 +114,7 @@ function handleEvent(event) {
               type: 'text',
               text: '111'
             }
+            client.replyMessage(event.replyToken, test2);
             return client.replyMessage(event.replyToken, test2);
           })
           .catch((err) => {
