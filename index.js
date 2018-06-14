@@ -104,6 +104,10 @@ function handleEvent(event) {
               type: 'text',
               text: data
             }
+            console.log('data');
+            console.log(data);
+            console.log('echo');
+            console.log(echo);
 
             return client.replyMessage(event.replyToken, echo);
             
