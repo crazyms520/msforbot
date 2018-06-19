@@ -98,10 +98,10 @@ function handleEvent(event) {
         Promise
           .all(queryStr.map(appleCrawler))
           .then((result) => {
-            result = result.join('');
-            console.log(typeof(result));
-            // result = result.replace('/,/g', '');
             console.log(result);
+            result = result.join('');
+            // result = result.replace('/,/g', '');
+            console.log('join:'+result);
             const echo = 
               {
                 type: 'text',
