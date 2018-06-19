@@ -102,7 +102,7 @@ function handleEvent(event) {
             let str = '';
             result = result.map(function(e) {
               console.log(e);
-              return result[e].join('');
+              return e.join('');
             }) 
             result = result.join('');
             // result = result.join('');
