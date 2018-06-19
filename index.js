@@ -100,10 +100,10 @@ function handleEvent(event) {
           .then((result) => {
             console.log(result[0]);
             let str = '';
-            result = result.join('');
             result = result.map(function(e) {
               return result[e].join('');
             }) 
+            result = result.join('');
             // result = result.join('');
             // result = result.replace('/,/g', '');
             const echo = 
