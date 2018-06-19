@@ -98,9 +98,9 @@ function handleEvent(event) {
         Promise
           .all(queryStr.map(appleCrawler))
           .then((result) => {
-            result = result.join(',');
+            result = result.join('');
             console.log(typeof(result));
-            result = result.replace('/,/g', '');
+            // result = result.replace('/,/g', '');
             console.log(result);
             const echo = 
               {
