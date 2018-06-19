@@ -97,6 +97,7 @@ function handleEvent(event) {
       case 'apple':
         for (const key in queryStr) {
           if (queryStr.hasOwnProperty(key)) {
+            console.log(queryStr[key]);
             Promise
             .race(appleCrawler(queryStr[key]))
             .then((result) => {

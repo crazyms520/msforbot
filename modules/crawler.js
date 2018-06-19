@@ -1,6 +1,6 @@
-const request = require('request');
-const cheerio = require('cheerio');
-const stringtags = require ('striptags');
+const request     = require('request');
+const cheerio     = require('cheerio');
+const stringtags  = require ('striptags');
 const dateFormate = require('./dateFormate');
 
 // const queryStr = ["食藥署", "食品藥物管理署", "食品", "食物", "藥品安全", "藥物", "藥品", "闢謠", "醫療器材", "化妝品", "化粧品", "醫材", "藥物", "藥妝", "藥品安全", "食安法", "食安", "抽驗", "衛生局"]
