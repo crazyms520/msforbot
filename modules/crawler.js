@@ -21,10 +21,10 @@ function crawler(query) {
             body: body
         }, function (error, response, body) {
             let $ = cheerio.load(body);
+            retult.push('['+query+']');
             $('.tbb > h2').each(function (i, elem) {
                 console.log(i);
                 result.push('['+query+']'+'\n'+(i + 1) + '. ');
-
                 // result.push('['+query+']'+'\n'+(i + 1) + '. ' + stringtags($(this).text()).slice(0,10)+'...' + '\n' + $(this).children('a').attr('href') + '\n')
             })
             // console.log(result);
