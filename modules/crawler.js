@@ -19,9 +19,9 @@ function crawler(query) {
             body: body
         }, function (error, response, body) {
             let $ = cheerio.load(body);
-            
+                result.push('['+query+']'+'\n');
             $('.tbb > h2').each(function (i, elem) {
-                result.push('['+query+']'+'\n'+(i + 1) + '. ' + stringtags($(this).text()).slice(0,10)+'...' + '\n')
+                result.push((i + 1) + '. ' + stringtags($(this).text()).slice(0,10)+'...' + '\n')
             })
             resolve(result);
         });
