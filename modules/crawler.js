@@ -21,7 +21,7 @@ function crawler(query) {
             let $ = cheerio.load(body);
             
             $('.tbb > h2').each(function (i, elem) {
-                result.push($(this).children('a').attr('href') + '\n')
+                result.push('['+query+']'+'\n'+(i + 1) + '. ' + stringtags($(this).text()).slice(0,10)+'...' + '\n')
             })
             resolve(result);
         });
