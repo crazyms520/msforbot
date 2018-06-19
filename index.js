@@ -104,11 +104,7 @@ function handleEvent(event) {
               const echo = [
                 {
                   type: 'text',
-                  text: result.join('\n'),
-                },
-                {
-                  type: 'text',
-                  text: queryStr.hasOwnProperty(key+1) ? queryStr[key+1] : '已經沒了',
+                  text: result,
                 }
               ]
               return client.replyMessage(event.replyToken, echo);
