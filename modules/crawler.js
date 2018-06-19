@@ -4,6 +4,7 @@ const stringtags = require ('striptags');
 const dateFormate = require('./dateFormate');
 
 // const queryStr = ["食藥署", "食品藥物管理署", "食品", "食物", "藥品安全", "藥物", "藥品", "闢謠", "醫療器材", "化妝品", "化粧品", "醫材", "藥物", "藥妝", "藥品安全", "食安法", "食安", "抽驗", "衛生局"]
+
 function crawler(query) {
     return new Promise((resolve, reject) => {
         const url = 'https://tw.appledaily.com/search'
@@ -25,27 +26,6 @@ function crawler(query) {
         });
     });
 }
-// function crawler(query) {
-//     return new Promise((resolve, reject) => {
-//         const url = 'https://tw.appledaily.com/search'
-//         const today = dateFormate(new Date());
-//         let body = "querystrA=" + query + "&searchType=text&searchMode=Adv&page=1&sdate=" + today + "&edate=" + today + "&source="
-//         let result = []
-//         request.post({
-//             headers: {
-//                 'content-type': 'application/x-www-form-urlencoded'
-//             },
-//             url: url,
-//             body: body
-//         }, function (error, response, body) {
-//             let $ = cheerio.load(body);
-//             $('.tbb > h2').each(function (i, elem) {
-//                 result.push('['+query+']'+'\n'+(i + 1) + '. ' + stringtags($(this).text()).slice(0,10)+'...' + '\n' + $(this).children('a').attr('href') + '\n')
-//             })
-//             resolve(result);
-//         });
-//     });
-// }
 
 module.exports = crawler;
 
