@@ -101,6 +101,7 @@ function handleEvent(event) {
             console.log(result[0]);
             let str = '';
             result = result.map(function(e) {
+              console.log(e);
               return result[e].join('');
             }) 
             result = result.join('');
