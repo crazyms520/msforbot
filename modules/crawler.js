@@ -21,7 +21,7 @@ function crawler(query) {
             body: body
         }, function (error, response, body) {
             let $ = cheerio.load(body);
-            retult.push('['+query+']');
+            result.push('['+query+']');
             $('.tbb > h2').each(function (i, elem) {
                 console.log(i);
                 result.push('['+query+']'+'\n'+(i + 1) + '. ');
