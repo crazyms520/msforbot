@@ -111,7 +111,7 @@ function handleEvent(event) {
                   text: queryStr.hasOwnProperty(key+1) ? queryStr[key+1] : '已經沒了',
                 }
               ]
-              client.replyMessage(event.replyToken, echo);
+              return client.replyMessage(event.replyToken, echo);
             });
           //   Promise
           //   .race(appleCrawler(queryStr[key]))

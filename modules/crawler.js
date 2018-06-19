@@ -7,7 +7,7 @@ const dateFormate = require('./dateFormate');
 
 function crawler(query) {
     return new Promise((resolve, reject) => {
-        const url = 'https://tw.appledaily.com/search'
+        const url   = 'https://tw.appledaily.com/search'
         const today = dateFormate(new Date());
         let body = "querystrA=" + query + "&searchType=text&searchMode=Adv&page=1&sdate=" + today + "&edate=" + today + "&source="
         let result = []
