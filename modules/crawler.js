@@ -7,7 +7,7 @@ const dateFormate = require('./dateFormate');
 
 function crawler(query) {
     return new Promise((resolve, reject) => {
-        const url = 'https://tw.appledaily.com/search'
+        const url = 'https://tw.appledaily.com/appledaily/search'
         const today = dateFormate(new Date());
         let body = "querystrA=" + query + "&searchType=text&searchMode=Adv&page=1&sdate=" + today + "&edate=" + today + "&source="
         let result = []
@@ -19,14 +19,15 @@ function crawler(query) {
             body: body
         }, function (error, response, body) {
             let $ = cheerio.load(body);
+            
             $('.tbb > h2').each(function (i, elem) {
+                console.log(elem);
                 result.push('['+query+']'+'\n'+(i + 1) + '. ' + stringtags($(this).text()).slice(0,10)+'...' + '\n' + $(this).children('a').attr('href') + '\n')
             })
-            console.log(result);
             resolve(result);
         });
     });
-}
+};
 
 module.exports = crawler;
 
