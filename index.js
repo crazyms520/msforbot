@@ -99,6 +99,8 @@ function handleEvent(event) {
           .all(queryStr.map(appleCrawler))
           .then((result) => {
             console.log(result.join('\n'));
+            result = result.join('\n');
+            result.replace(',', '');
             const echo = 
               {
                 type: 'text',
