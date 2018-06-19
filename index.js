@@ -97,6 +97,7 @@ function handleEvent(event) {
         for (const key in queryStr) {
           if (queryStr.hasOwnProperty(key)) {
             let result = appleCrawler(queryStr[key]);
+            console.log(result);
             const echo = [
               {
                 type: 'text',
