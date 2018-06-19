@@ -97,20 +97,11 @@ function handleEvent(event) {
       case 'apple':
         for (const key in queryStr) {
           if (queryStr.hasOwnProperty(key)) {
-            console.log(appleCrawler(queryStr[key]));
-            console.log(queryStr[key]);
-            Promise
-            .all(appleCrawler(queryStr[key]))
-            .then((result) => {
-              console.log(result);
-              const echo = [
-                {
-                  type: 'text',
-                  text: result,
-                }
-              ]
-              return client.replyMessage(event.replyToken, echo);
-            })
+            let test = appleCrawler(queryStr[key]);
+            console.log(console.log(test));
+          
+            
+              // return client.replyMessage(event.replyToken, echo);
           //   Promise
           //   .race(appleCrawler(queryStr[key]))
           //   .then((result) => {
