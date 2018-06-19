@@ -98,13 +98,13 @@ function handleEvent(event) {
         Promise
           .all(queryStr.map(appleCrawler))
           .then((result) => {
-            console.log(result.join('\n'));
             result = result.join('\n');
             result.replace(',', '');
+            console.log(result);
             const echo = 
               {
                 type: 'text',
-                text: result.join('\n'),
+                text: result,
               }
             return client.replyMessage(event.replyToken, echo);
           })
