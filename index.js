@@ -98,7 +98,7 @@ function handleEvent(event) {
         Promise
           .all(queryStr.map(appleCrawler))
           .then((result) => {
-            console.log(result);
+            console.log(result[0]);
             let str = '';
             result.map(function(e) {
               str += e;
