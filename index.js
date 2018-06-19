@@ -100,7 +100,7 @@ function handleEvent(event) {
           .then((result) => {
             result = result.join('\n');
             console.log(result);
-            result.replace('/,/g', '');
+            result.replace('/,/g', ' ');
             console.log(result);
             const echo = 
               {
