@@ -102,7 +102,7 @@ function handleEvent(event) {
                 type: 'text',
                 text: result.join('\n')
               }
-              return client.replyMessage(event.replyToken, echo);
+              client.replyMessage(event.replyToken, echo);
             });
           }
         }
