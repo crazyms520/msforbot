@@ -97,8 +97,7 @@ function handleEvent(event) {
         for (const key in queryStr) {
           if (queryStr.hasOwnProperty(key)) {
             appleCrawler(queryStr[key]).then((result) => {
-          console.log(queryStr[key]);
-
+              console.log(queryStr[key]);
               console.log(result);
 
               const echo = [
@@ -111,7 +110,7 @@ function handleEvent(event) {
                   text: queryStr.hasOwnProperty(key+1) ? queryStr[key+1] : '已經沒了',
                 }
               ]
-              return client.replyMessage(event.replyToken, echo);
+              client.replyMessage(event.replyToken, echo);
             });
           //   Promise
           //   .race(appleCrawler(queryStr[key]))
