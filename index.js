@@ -98,32 +98,12 @@ function handleEvent(event) {
         for (const key in queryStr) {
           if (queryStr.hasOwnProperty(key)) {
             appleCrawler(queryStr[key]).then((result) => {
-              const echo = 
-                {
-                  type: 'text',
-                  text: result.join('\n'),
-                },
+              const echo = {
+                type: 'text',
+                text: result.join('\n')
+              }
               return client.replyMessage(event.replyToken, echo);
             });
-          
-            
-              // return client.replyMessage(event.replyToken, echo);
-          //   Promise
-          //   .race(appleCrawler(queryStr[key]))
-          //   .then((result) => {
-          //     console.log(result);
-          //     const echo = [
-          //       {
-          //         type: 'text',
-          //         text: result.join('\n'),
-          //       },
-          //       {
-          //         type: 'text',
-          //         text: queryStr.hasOwnProperty(key+1) ? queryStr[key+1] : '已經沒了',
-          //       }
-          //     ]
-          //     return client.replyMessage(event.replyToken, echo);
-          //   })
           }
         }
         // Promise
