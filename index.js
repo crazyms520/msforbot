@@ -97,18 +97,31 @@ function handleEvent(event) {
       case 'apple':
         for (const key in queryStr) {
           if (queryStr.hasOwnProperty(key)) {
-            appleCrawler(queryStr[key]).then((result) => {
-              console.log(queryStr[key]);
+            Promise
+            .race(appleCrawler(queryStr[key]))
+            .then((result) => {
               console.log(result);
-
-              const echo = 
+              const echo = [
                 {
                   type: 'text',
-                  text: result,
+                  text: result.join('\n'),
                 }
-              
+              ]
               return client.replyMessage(event.replyToken, echo);
-            });
+            })
+            // appleCrawler(queryStr[key])
+            // .then((result) => {
+            //   console.log(queryStr[key]);
+            //   console.log(result);
+
+            //   const echo = 
+            //   {
+            //     type: 'text',
+            //     text: result,
+            //   }
+              
+            //   return client.replyMessage(event.replyToken, echo);
+            // });
           //   Promise
           //   .race(appleCrawler(queryStr[key]))
           //   .then((result) => {
