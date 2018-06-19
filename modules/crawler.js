@@ -9,8 +9,10 @@ function crawler(query) {
     return new Promise((resolve, reject) => {
         const url   = 'https://tw.appledaily.com/search'
         const today = dateFormate(new Date());
-        let body = "querystrA=" + query + "&searchType=text&searchMode=Adv&page=1&sdate=" + today + "&edate=" + today + "&source="
-        let result = []
+
+        let body   = "querystrA=" + query + "&searchType=text&searchMode=Adv&page=1&sdate=" + today + "&edate=" + today + "&source="
+        let result = [];
+
         request.post({
             headers: {
                 'content-type': 'application/x-www-form-urlencoded'
@@ -25,8 +27,8 @@ function crawler(query) {
 
                 // result.push('['+query+']'+'\n'+(i + 1) + '. ' + stringtags($(this).text()).slice(0,10)+'...' + '\n' + $(this).children('a').attr('href') + '\n')
             })
-            console.log(result);
-            resolve(result);
+            // console.log(result);
+            resolve(1);
         });
     });
 }
