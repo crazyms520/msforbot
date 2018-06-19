@@ -95,9 +95,10 @@ function handleEvent(event) {
     switch (event.postback.data) {
       case 'apple':
         for (const key in queryStr) {
+          console.log(queryStr[key]);
           if (queryStr.hasOwnProperty(key)) {
             Promise
-            .race(appleCrawler(queryStr[key]))
+            .all(appleCrawler(queryStr[key]))
             .then((result) => {
               console.log(result);
               const echo = [
