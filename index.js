@@ -97,8 +97,9 @@ function handleEvent(event) {
         for (const key in queryStr) {
           if (queryStr.hasOwnProperty(key)) {
             Promise
-            .race(queryStr[key])
+            .race(appleCrawler(queryStr[key]))
             .then((result) => {
+              console.log(result);
               const echo = [
                 {
                   type: 'text',
