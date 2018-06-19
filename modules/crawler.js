@@ -20,7 +20,7 @@ function crawler(query) {
         }, function (error, response, body) {
             let $ = cheerio.load(body);
             $('.tbb > h2').each(function (i, elem) {
-                result.push('['+queyr+']'+'\n'+(i + 1) + '. ' + stringtags($(this).text()).slice(0,10)+'...' + '\n' + $(this).children('a').attr('href') + '\n')
+                result.push('['+query+']'+'\n'+(i + 1) + '. ' + stringtags($(this).text()).slice(0,10)+'...' + '\n' + $(this).children('a').attr('href') + '\n')
             })
             resolve(result);
         });
