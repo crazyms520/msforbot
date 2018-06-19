@@ -94,24 +94,44 @@ function handleEvent(event) {
     // create a echoing text message
     switch (event.postback.data) {
       case 'apple':
-        Promise
-          .all(queryStr.map(appleCrawler))
-          .then((result) => {
-            console.log(result);
-            // let data1 = result[0].concat(result[1], result[2], result[3], result[4], result[5], result[6], result[7], result[8], result[9], result[10]);
-            // data1 = data1.join('\n')
-            // let data2 = result[11].concat(result[12], result[13], result[14], result[15], result[16], result[17], result[18]);
-            // data2 = data2.join('\n')
-            const echo = {
+        for (const key in queryStr) {
+          if (queryStr.hasOwnProperty(key)) {
+            let result = appleCrawler(queryStr[key]);
+            const echo = [
+              {
                 type: 'text',
                 text: result.join('\n'),
-            }
-            console.log(echo);
+              },
+              {
+                type: 'text',
+                text: queryStr.hasOwnProperty(key+1) ? queryStr[key+1] : '已經沒了',
+              }
+            ]
             return client.replyMessage(event.replyToken, echo);
-          })
-          .catch((err) => {
-            console.error('err:' + err);
-          });
+          }
+        }
+        // Promise
+        //   .all(queryStr.map(appleCrawler))
+        //   .then((result) => {
+        //     console.log(result);
+        //     const echo = [
+        //       {
+        //         type: 'text',
+        //         text: result.join('\n'),
+        //       },
+        //       {
+        //         type:'text',
+        //         text:'',
+        //       }
+        //     ]
+            
+        //     console.log(echo);
+            
+        //     return client.replyMessage(event.replyToken, echo);
+        //   })
+        //   .catch((err) => {
+        //     console.error('err:' + err);
+        //   });
         break;
       case 'free':
         break;
