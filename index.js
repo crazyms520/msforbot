@@ -100,16 +100,16 @@ function handleEvent(event) {
           .then((result) => {
             console.log(result[0]);
             let str = '';
-            result.map(function(e) {
-              str += e;
+            result = result.join('');
+            result = result.map(function(e) {
+              return result[e].join('');
             }) 
             // result = result.join('');
             // result = result.replace('/,/g', '');
-            console.log('join:'+str);
             const echo = 
               {
                 type: 'text',
-                text: str,
+                text: result,
               }
             return client.replyMessage(event.replyToken, echo);
           })
