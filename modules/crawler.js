@@ -27,6 +27,7 @@ function crawler(query) {
     });
 }
 
+
 module.exports = crawler;
 
 // const fulfilled = Promise
