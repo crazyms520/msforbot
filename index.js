@@ -101,12 +101,12 @@ function handleEvent(event) {
               console.log(queryStr[key]);
               console.log(result);
 
-              const echo = [
+              const echo = 
                 {
                   type: 'text',
                   text: result,
                 }
-              ]
+              
               return client.replyMessage(event.replyToken, echo);
             });
           //   Promise
