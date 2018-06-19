@@ -99,13 +99,17 @@ function handleEvent(event) {
           .all(queryStr.map(appleCrawler))
           .then((result) => {
             console.log(result);
-            result = result.join('');
+            let str = '';
+            result.map(function(e) {
+              str += e;
+            }) 
+            // result = result.join('');
             // result = result.replace('/,/g', '');
-            console.log('join:'+result);
+            console.log('join:'+str);
             const echo = 
               {
                 type: 'text',
-                text: result,
+                text: str,
               }
             return client.replyMessage(event.replyToken, echo);
           })
