@@ -104,7 +104,7 @@ function handleEvent(event) {
               const echo = [
                 {
                   type: 'text',
-                  text: result.join('\n'),
+                  text: result,
                 }
               ]
               return client.replyMessage(event.replyToken, echo);
