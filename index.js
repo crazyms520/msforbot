@@ -1,7 +1,7 @@
 'use strict';
 
-const line = require('@line/bot-sdk');
-const express = require('express');
+const line         = require('@line/bot-sdk');
+const express      = require('express');
 const appleCrawler = require('./modules/crawler');
 
 // create LINE SDK config from env variables
@@ -97,6 +97,7 @@ function handleEvent(event) {
       case 'apple':
         for (const key in queryStr) {
           if (queryStr.hasOwnProperty(key)) {
+            console.log(appleCrawler());
             console.log(queryStr[key]);
             Promise
             .race(appleCrawler(queryStr[key]))
@@ -110,19 +111,6 @@ function handleEvent(event) {
               ]
               return client.replyMessage(event.replyToken, echo);
             })
-            // appleCrawler(queryStr[key])
-            // .then((result) => {
-            //   console.log(queryStr[key]);
-            //   console.log(result);
-
-            //   const echo = 
-            //   {
-            //     type: 'text',
-            //     text: result,
-            //   }
-              
-            //   return client.replyMessage(event.replyToken, echo);
-            // });
           //   Promise
           //   .race(appleCrawler(queryStr[key]))
           //   .then((result) => {
