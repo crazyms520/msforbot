@@ -96,19 +96,21 @@ function handleEvent(event) {
       case 'apple':
         for (const key in queryStr) {
           if (queryStr.hasOwnProperty(key)) {
-            let result = appleCrawler(queryStr[key]);
-            console.log(result);
-            const echo = [
-              {
-                type: 'text',
-                text: result.join('\n'),
-              },
-              {
-                type: 'text',
-                text: queryStr.hasOwnProperty(key+1) ? queryStr[key+1] : '已經沒了',
-              }
-            ]
-            return client.replyMessage(event.replyToken, echo);
+            Promise
+            .race(queryStr[key])
+            .then((result) => {
+              const echo = [
+                {
+                  type: 'text',
+                  text: result.join('\n'),
+                },
+                {
+                  type: 'text',
+                  text: queryStr.hasOwnProperty(key+1) ? queryStr[key+1] : '已經沒了',
+                }
+              ]
+              return client.replyMessage(event.replyToken, echo);
+            })
           }
         }
         // Promise
