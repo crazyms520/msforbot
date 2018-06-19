@@ -90,22 +90,22 @@ function handleEvent(event) {
 
   } else if (event.type === 'postback') {
     // const queryStr = ["食藥署", "食品藥物管理署", "食品", "食物", "藥品安全", "藥物", "藥品", "闢謠", "醫療器材", "化妝品", "化粧品", "醫材", "藥物", "藥妝", "藥品安全", "食安法", "食安", "抽驗", "衛生局"]
-    const queryStr = ["食藥署", "食品藥物管理署"]
+    let queryStr = ["食藥署", "食品藥物管理署"]
     // user.then((profile) => {
     // create a echoing text message
     switch (event.postback.data) {
       case 'apple':
-        for (const key in queryStr) {
-          if (queryStr.hasOwnProperty(key)) {
-            appleCrawler(queryStr[key]).then((result) => {
+        // for (const key in queryStr) {
+          // if (queryStr.hasOwnProperty(key)) {
+            appleCrawler(queryStr.shift()).then((result) => {
               const echo = {
                 type: 'text',
                 text: result.join('\n')
               }
               client.replyMessage(event.replyToken, echo);
             });
-          }
-        }
+          // }
+        // }
         // Promise
         //   .all(queryStr.map(appleCrawler))
         //   .then((result) => {
