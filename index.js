@@ -100,7 +100,7 @@ function handleEvent(event) {
             console.log(appleCrawler(queryStr[key]));
             console.log(queryStr[key]);
             Promise
-            .race(appleCrawler(queryStr[key]))
+            .all(appleCrawler(queryStr[key]))
             .then((result) => {
               console.log(result);
               const echo = [
