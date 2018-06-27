@@ -80,11 +80,14 @@ function handleEvent(event) {
   } else if (event.type === 'postback') {
     switch (event.postback.data) {
       case 'D3':
-        Promise.all(gameCrawler())
-        .then((result) => {
+        gameCrawler.then((result) => {
           console.log(result);
-          // return client.replyMessage(event.replyToken, echo);
-        })
+        });
+        // Promise.all(gameCrawler())
+        // .then((result) => {
+        //   console.log(result);
+        //   // return client.replyMessage(event.replyToken, echo);
+        // })
         break;
       case 'free':
         break;
