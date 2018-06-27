@@ -24,12 +24,8 @@ function crawler(url) {
                     console.log($(this).text());
                     return $(this).text().includes('今日');
                 });
-
-                result.push (a);
-                
                 // console.log($(this).attr('href')+$(this).text());
             });
-            console.log(result);
             // console.log(body)
             resolve(url);
         });
