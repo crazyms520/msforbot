@@ -22,7 +22,10 @@ function crawler(url) {
                 result = $(this).children('.b-list__time').filter(function(i, el) {
                     return $(this).text().includes('今日');
                 });
-                console.log(result.children('.b-list__main').text() );
+
+                result.each(function(i,e) {
+                    console.log(e.children('b-list__main').children('a').text());
+                })
                 // console.log($(this).attr('href')+$(this).text());
             });
             resolve(url);
