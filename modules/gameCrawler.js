@@ -21,7 +21,7 @@ function crawler(url) {
             // });
             $('.b-list__row').each(function(i,elem) {
                 $(this).children('.b-list__time').filter(function(i, el) {
-                    console.log($(this.text()));
+                    console.log($(this).text());
                     return $(this).text().includes('今日');
                 });
 
