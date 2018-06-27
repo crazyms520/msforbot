@@ -2,13 +2,16 @@ const request     = require('request');
 const cheerio     = require('cheerio');
 // const dateFormate = require('./dateFormate');
 
-let crawler =  new Promise((resolve, reject) => {
-        let url = 'https://forum.gamer.com.tw/B.php?';
+function crawler() {
+    let url = 'https://forum.gamer.com.tw/B.php?';
+
+    return new Promise((resolve, reject) => {
+
         console.log('from:'+url);
         // let url = 'https://forum.gamer.com.tw/B.php?'
         // let body = 'bsn=21400';
         // let result = [];
-        resolve (1);
+        resolve (url);
         // request.post({
         //     headers: {
         //         'content-type': 'application/x-www-form-urlencoded'
@@ -24,5 +27,6 @@ let crawler =  new Promise((resolve, reject) => {
         //     resolve(result);
         // });
     });
+};
 
 module.exports = crawler;
