@@ -20,7 +20,14 @@ function crawler(url) {
                 
             // });
             $('.b-list__row').each(function(i,elem) {
-                console.log($(this).children('.b-list__summary > .b-list__summary__sort').text());
+                let a = $(this).children('.b-list__time').filter(function(i, el) {
+                    return $(this).text().includes('今日');
+                }).children('.b-list__summary').text();
+
+                result.push (a);
+
+                
+                console.log(result);
                 // console.log($(this).attr('href')+$(this).text());
             });
             // console.log(body)
