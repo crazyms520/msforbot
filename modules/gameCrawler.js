@@ -8,17 +8,13 @@ function crawler(url) {
     return new Promise((resolve, reject) => {
 
         console.log('from:'+url);
-        
         let body = '?bsn=21400';
+
+        let newUrl = url + body;
+        
         let result = [];
         // resolve (url);
-        request.post({
-            headers: {
-                'content-type': 'application/x-www-form-urlencoded'
-            },
-            url: url,
-            body: body
-        }, function (error, response, body) {
+        request.get(newUrl, function (error, response, body) {
             let $ = cheerio.load(body);
             console.log(body)
             resolve(url);
