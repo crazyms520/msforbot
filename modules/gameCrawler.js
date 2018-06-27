@@ -15,7 +15,6 @@ function crawler(url) {
                     }
                 }
             });
-            console.log(result.length);
             resolve(result);
         });
     });

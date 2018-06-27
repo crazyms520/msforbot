@@ -90,6 +90,7 @@ function handleEvent(event) {
 
     Promise.all([gameCrawler(url)])
         .then((result) => {
+          console.log(result);
           const echo = {
             type: 'text',
             text: result
