@@ -2,8 +2,8 @@ const request     = require('request');
 const cheerio     = require('cheerio');
 // const dateFormate = require('./dateFormate');
 
-function crawler() {
-    let url = 'https://forum.gamer.com.tw/B.php?';
+function crawler(url) {
+    // let url = 'https://forum.gamer.com.tw/B.php?';
 
     return new Promise((resolve, reject) => {
 
