@@ -12,7 +12,6 @@ function crawler(url) {
 
         let newUrl = url + body;
         
-        let result = [];
         // resolve (url);
         request.get(newUrl, function (error, response, body) {
             let $ = cheerio.load(body);
@@ -20,13 +19,12 @@ function crawler(url) {
                 
             // });
             $('.b-list__row').each(function(i,elem) {
-                $(this).children('.b-list__time').filter(function(i, el) {
-                    console.log($(this).text());
+                let result = $(this).children('.b-list__time').filter(function(i, el) {
                     return $(this).text().includes('今日');
                 });
                 // console.log($(this).attr('href')+$(this).text());
             });
-            // console.log(body)
+            console.log(result)
             resolve(url);
         });
     });
