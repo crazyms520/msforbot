@@ -20,7 +20,7 @@ function crawler(url) {
                 
             // });
             $('.b-list__row').each(function(i,elem) {
-                console.log($(this).children('.b-list__summary > .b-list__summary__sort').text);
+                console.log($(this).children('.b-list__summary > .b-list__summary__sort').text());
                 // console.log($(this).attr('href')+$(this).text());
             });
             // console.log(body)
