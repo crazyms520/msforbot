@@ -5,7 +5,7 @@ const cheerio     = require('cheerio');
 function crawler() {
     let url = 'https://forum.gamer.com.tw/B.php?';
     return new Promise((resolve, reject) => {
-        console.log(url);
+        console.log('from:'+url);
         // let url = 'https://forum.gamer.com.tw/B.php?'
         // let body = 'bsn=21400';
         // let result = [];
