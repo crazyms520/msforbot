@@ -34,7 +34,7 @@ app.post('/callback', line.middleware(config), (req, res) => {
 // event handler
 function handleEvent(event) {
   // if (event.type !== 'message' || event.message.type !== 'text' || event.type !== 'postback') {
-
+  let url;
   if (event.type !== 'message' && event.type !== 'postback') {
     // ignore non-text-message event
     return Promise.resolve(null);
@@ -80,7 +80,7 @@ function handleEvent(event) {
   } else if (event.type === 'postback') {
     switch (event.postback.data) {
       case 'D3':
-        let url = "https://forum.gamer.com.tw/B.php?bsn=21400";
+        url = "https://forum.gamer.com.tw/B.php?bsn=21400";
         break;
       case 'free':
         break;
