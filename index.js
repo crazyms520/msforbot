@@ -1,9 +1,8 @@
 'use strict';
 
-const line         = require('@line/bot-sdk');
-const express      = require('express');
-// const appleCrawler = require('./modules/crawler');
-
+const line        = require('@line/bot-sdk');
+const express     = require('express');
+const gameCrawler = require('crawler');
 // create LINE SDK config from env variables
 const config = {
   channelAccessToken: process.env.CHANNEL_ACCESS_TOKEN,
@@ -81,26 +80,9 @@ function handleEvent(event) {
   } else if (event.type === 'postback') {
     switch (event.postback.data) {
       case 'D3':
-        Promise
-          .all(queryStr.map(appleCrawler))
-          .then((result) => {
-            console.log(result[0]);
-            let str = '';
-            result = result.map(function(e) {
-              console.log(e);
-              return e.join('');
-            }) 
-            result = result.join('');
-            const echo = 
-              {
-                type: 'text',
-                text: result,
-              }
-            return client.replyMessage(event.replyToken, echo);
-          })
-          .catch((err) => {
-            console.error('err:' + err);
-          });
+        gameCrawler.then(() => {
+          return client.replyMessage(event.replyToken, echo);
+        });
         break;
       case 'free':
         break;

@@ -1,4 +1,4 @@
-const rp = require('request-promise');
+const request     = require('request');
 const cheerio     = require('cheerio');
 const dateFormate = require('./dateFormate');
 
@@ -18,7 +18,7 @@ function crawler(query) {
             body: body
         }, function (error, response, body) {
             let $ = cheerio.load(body);
-                result.push('\n'+'['+query+']'+'\n');
+            result.push('\n'+'['+query+']'+'\n');
             $('.tbb > h2').each(function (i, elem) {
                 result.push((i + 1) + '. ' + $(this).text() + '\n\n')
             })
