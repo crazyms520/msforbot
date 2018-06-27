@@ -3,8 +3,9 @@ const cheerio     = require('cheerio');
 // const dateFormate = require('./dateFormate');
 
 function crawler(query) {
-    let url = 'https://forum.gamer.com.tw/B.php?';
     return new Promise((resolve, reject) => {
+        let url = 'https://forum.gamer.com.tw/B.php?';
+
         console.log(url);
         // let url = 'https://forum.gamer.com.tw/B.php?'
         let body = 'bsn=21400';
