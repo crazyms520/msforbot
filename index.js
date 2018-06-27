@@ -92,7 +92,7 @@ function handleEvent(event) {
         .then((result) => {
           const echo = {
             type: 'text',
-            text: result[0]
+            text: result
           }
           return client.replyMessage(event.replyToken, echo);
         })
