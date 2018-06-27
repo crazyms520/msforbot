@@ -80,6 +80,7 @@ function handleEvent(event) {
   } else if (event.type === 'postback') {
     switch (event.postback.data) {
       case 'D3':
+        console.log(gameCrawler);
         gameCrawler.then((result) => {
           console.log(result);
         });
