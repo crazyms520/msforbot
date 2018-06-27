@@ -8,7 +8,6 @@ function crawler(url) {
             let $ = cheerio.load(body);
             let words = 0;
             $('.b-list__row').each(function(i,elem) {
-                console.log($(this).children('.b-list__main').children('a').text().includes('本討論串已無文章'));
                 if ($(this).children('.b-list__time').text().includes('今日') && ($(this).children('.b-list__main').children('.b-list__main__title.is-del').length === 0)) {
                     let str = $(this).children('.b-list__main').children('a').text() + ' \n ' + 'https://forum.gamer.com.tw/' + $(this).children('.b-list__main').children('a').attr('href') + ' \n ';
                     if ((words += str.length) < 2000) {
@@ -16,6 +15,7 @@ function crawler(url) {
                     }
                 }
             });
+            console.log(result.length);
             resolve(result);
         });
     });

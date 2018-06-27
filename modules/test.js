@@ -9,12 +9,14 @@ function crawler(url) {
             $('.b-list__row').each(function(i,elem) {
                 if ($(this).children('.b-list__time').text().includes('今日') && ($(this).children('.b-list__main').children('.b-list__main__title.is-del').length === 0)) {
                     let str = $(this).children('.b-list__main').children('a').text() + ' \n ' + 'https://forum.gamer.com.tw/' + $(this).children('.b-list__main').children('a').attr('href') + ' \n ';
-                    words += str.length
+
                     if ((words += str.length) < 2000) {
-                       result.push ($(this).children('.b-list__main').children('a').text() + ' \n ' + 'https://forum.gamer.com.tw/' + $(this).children('.b-list__main').children('a').attr('href') + ' \n ');   
+                       result += str;   
                     }
                 }
             });
+            console.log(result);
+
         });
 };
 crawler('https://forum.gamer.com.tw/B.php?bsn=21400');
