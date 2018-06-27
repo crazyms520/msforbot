@@ -16,7 +16,10 @@ function crawler(url) {
         // resolve (url);
         request.get(newUrl, function (error, response, body) {
             let $ = cheerio.load(body);
-            console.log(body)
+            $('.b-list__row').each(function(i,elem) {
+                console.log(i);
+            });
+            // console.log(body)
             resolve(url);
         });
     });
