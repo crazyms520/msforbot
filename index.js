@@ -80,15 +80,16 @@ function handleEvent(event) {
   } else if (event.type === 'postback') {
     switch (event.postback.data) {
       case 'D3':
-        let url = "https://forum.gamer.com.tw/B.php";
-        // console.log(gameCrawler);
-        // gameCrawler.then((result) => {
-        //   console.log(result);
-        // });
+        let url = "https://forum.gamer.com.tw/B.php?bsn=21400";
+        
         Promise.all([gameCrawler(url)])
         .then((result) => {
           console.log(result);
-          // return client.replyMessage(event.replyToken, echo);
+          const echo = {
+            type: 'text',
+            text: result
+          }
+          return client.replyMessage(event.replyToken, echo);
         })
         break;
       case 'free':
