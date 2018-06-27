@@ -8,24 +8,21 @@ function crawler(url) {
     return new Promise((resolve, reject) => {
 
         console.log('from:'+url);
-        // let url = 'https://forum.gamer.com.tw/B.php?'
-        // let body = 'bsn=21400';
-        // let result = [];
-        resolve (url);
-        // request.post({
-        //     headers: {
-        //         'content-type': 'application/x-www-form-urlencoded'
-        //     },
-        //     url: url,
-        //     body: body
-        // }, function (error, response, body) {
-        //     let $ = cheerio.load(body);
-        //     result.push('\n'+'['+query+']'+'\n');
-        //     $('.tbb > h2').each(function (i, elem) {
-        //         result.push((i + 1) + '. ' + $(this).text() + '\n\n')
-        //     })
-        //     resolve(result);
-        // });
+        
+        let body = 'bsn=21400';
+        let result = [];
+        // resolve (url);
+        request.post({
+            headers: {
+                'content-type': 'application/x-www-form-urlencoded'
+            },
+            url: url,
+            body: body
+        }, function (error, response, body) {
+            let $ = cheerio.load(body);
+            console.log(body)
+            resolve(url);
+        });
     });
 };
 
