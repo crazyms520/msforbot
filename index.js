@@ -94,7 +94,6 @@ function handleEvent(event) {
             type: 'text',
             text: result[0]
           }
-          console.log(echo);
           return client.replyMessage(event.replyToken, echo);
         })
   }
