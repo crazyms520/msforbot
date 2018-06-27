@@ -4,7 +4,7 @@ const cheerio     = require('cheerio');
 function crawler(url) {
     return new Promise((resolve, reject) => {
         let result = [];
-        request.get(newUrl, function (error, response, body) {
+        request.get(url, function (error, response, body) {
             let $ = cheerio.load(body);
             $('.b-list__row').each(function(i,elem) {
                 if ($(this).children('.b-list__time').text().includes('今日')) {
