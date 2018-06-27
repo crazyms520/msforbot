@@ -20,16 +20,16 @@ function crawler(url) {
                 
             // });
             $('.b-list__row').each(function(i,elem) {
-                let a = $(this).children('.b-list__time').filter(function(i, el) {
+                $(this).children('.b-list__time').filter(function(i, el) {
+                    console.log($(this.text()));
                     return $(this).text().includes('今日');
-                }).children('.b-list__summary').text();
+                });
 
                 result.push (a);
-
                 
-                console.log(result);
                 // console.log($(this).attr('href')+$(this).text());
             });
+            console.log(result);
             // console.log(body)
             resolve(url);
         });
