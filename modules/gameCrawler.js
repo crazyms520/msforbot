@@ -16,8 +16,12 @@ function crawler(url) {
         // resolve (url);
         request.get(newUrl, function (error, response, body) {
             let $ = cheerio.load(body);
-            $('.b-list__row > .b-list__main > a').each(function(i,elem) {
-                console.log($(this).attr('href')+$(this).text());
+            // $('.b-list__time').each (function(e,elem) {
+                
+            // });
+            $('.b-list__row').each(function(i,elem) {
+                console.log($(this).children('.b-list__summary > .b-list__summary__sort').text);
+                // console.log($(this).attr('href')+$(this).text());
             });
             // console.log(body)
             resolve(url);
