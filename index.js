@@ -81,22 +81,21 @@ function handleEvent(event) {
     switch (event.postback.data) {
       case 'D3':
         let url = "https://forum.gamer.com.tw/B.php?bsn=21400";
-        
-        Promise.all([gameCrawler(url)])
-        .then((result) => {
-          console.log(result);
-          const echo = {
-            type: 'text',
-            text: result
-          }
-          return client.replyMessage(event.replyToken, echo);
-        })
         break;
       case 'free':
         break;
       case 'union':
         break;
     }
+
+    Promise.all([gameCrawler(url)])
+        .then((result) => {
+          const echo = {
+            type: 'text',
+            text: result
+          }
+          return client.replyMessage(event.replyToken, echo);
+        })
   }
 }
 
