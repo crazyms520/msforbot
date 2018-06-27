@@ -80,7 +80,7 @@ function handleEvent(event) {
   } else if (event.type === 'postback') {
     switch (event.postback.data) {
       case 'D3':
-        let url = "https://forum.gamer.com.tw/B.php?";
+        let url = "https://forum.gamer.com.tw/B.php";
         // console.log(gameCrawler);
         // gameCrawler.then((result) => {
         //   console.log(result);

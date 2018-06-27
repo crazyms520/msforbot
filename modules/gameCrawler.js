@@ -9,7 +9,7 @@ function crawler(url) {
 
         console.log('from:'+url);
         
-        let body = 'bsn=21400';
+        let body = '?bsn=21400';
         let result = [];
         // resolve (url);
         request.post({
