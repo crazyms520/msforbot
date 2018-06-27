@@ -24,7 +24,8 @@ function crawler(url) {
                 });
 
                 result.each(function(i,e) {
-                    console.log(e.children('b-list__main').children('a').text());
+                    console.log(e);
+                    // console.log(e.children('b-list__main').children('a').text());
                 })
                 // console.log($(this).attr('href')+$(this).text());
             });
