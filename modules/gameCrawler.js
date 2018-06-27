@@ -11,7 +11,7 @@ function crawler(url) {
         let body = '?bsn=21400';
 
         let newUrl = url + body;
-        
+        let result = [];
         // resolve (url);
         request.get(newUrl, function (error, response, body) {
             let $ = cheerio.load(body);
@@ -19,7 +19,7 @@ function crawler(url) {
                 
             // });
             $('.b-list__row').each(function(i,elem) {
-                let result = $(this).children('.b-list__time').filter(function(i, el) {
+                result = $(this).children('.b-list__time').filter(function(i, el) {
                     return $(this).text().includes('今日');
                 });
                 // console.log($(this).attr('href')+$(this).text());
