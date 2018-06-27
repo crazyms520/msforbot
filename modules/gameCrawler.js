@@ -17,7 +17,7 @@ function crawler(url) {
         request.get(newUrl, function (error, response, body) {
             let $ = cheerio.load(body);
             $('.b-list__row').each(function(i,elem) {
-                console.log(i);
+                console.log($(this).text());
             });
             // console.log(body)
             resolve(url);
