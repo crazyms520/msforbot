@@ -8,11 +8,11 @@ function crawler(url) {
             let $ = cheerio.load(body);
             $('.b-list__row').each(function(i,elem) {
                 if ($(this).children('.b-list__time').text().includes('今日')) {
-                 result.push ($(this).children('.b-list__main').children('a').text() + ' \n ' + 'https://forum.gamer.com.tw/' + $(this).children('.b-list__main').children('a').attr('href'));   
+                 result.push ($(this).children('.b-list__main').children('a').text() + ' \n ' + 'https://forum.gamer.com.tw/' + $(this).children('.b-list__main').children('a').attr('href') + ' \n ');   
                 }
                 
             });
-            resolve(result);
+            resolve(result.join('\n'));
         });
     });
 };
