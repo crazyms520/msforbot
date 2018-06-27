@@ -82,9 +82,11 @@ function handleEvent(event) {
       case 'D3':
         url = "https://forum.gamer.com.tw/B.php?bsn=21400";
         break;
-      case 'free':
+      case 'Minecraft':
+        url = 'https://forum.gamer.com.tw/B.php?bsn=18673';
         break;
-      case 'union':
+      case 'Mhw':
+        url = 'https://forum.gamer.com.tw/B.php?bsn=5786';
         break;
     }
 
