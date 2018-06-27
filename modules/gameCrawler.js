@@ -3,7 +3,6 @@ const cheerio     = require('cheerio');
 
 function crawler(url) {
     return new Promise((resolve, reject) => {
-        let newUrl = url + body;
         let result = [];
         request.get(newUrl, function (error, response, body) {
             let $ = cheerio.load(body);
@@ -13,9 +12,7 @@ function crawler(url) {
                 }
                 
             });
-            console.log(result);
-            
-            
+            resolve(result);
         });
     });
 };
