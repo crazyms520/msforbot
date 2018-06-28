@@ -92,7 +92,9 @@ function handleEvent(event) {
 
     Promise.all([gameCrawler(url)])
         .then((result) => {
-          console.log(result);
+          if (result.length == 0) {
+            result = '今日尚無最新發文'
+          }
           const echo = {
             type: 'text',
             text: result[0]
